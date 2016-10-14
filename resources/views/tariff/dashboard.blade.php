@@ -1,7 +1,7 @@
 @extends('tariff.master')
 
 @section('content')
-    <div>ACCOUNT</div>
+    <div>TARIFF PLANS</div>
 @stop
 
 @section('dashboard_active')

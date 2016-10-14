@@ -16,8 +16,9 @@ class CreateTariffsTable extends Migration
         Schema::create('tariffs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tariff_name');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('category');
+            // $table->integer('category_id')->unsigned();
+            // $table->foreign('category_id')->references('id')->on('categories');
             $table->integer('rate');
             $table->timestamps();
         });

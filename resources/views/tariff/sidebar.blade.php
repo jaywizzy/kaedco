@@ -1,17 +1,17 @@
 <div class="sidebar" data-color="blue" data-image="/creativetim/img/sidebar-4.jpg">
 	<div class="sidebar-wrapper">
 		<div class="logo">
-			<a href="#" class="simple-text">ACCOUNT</a>
+			<a href="#" class="simple-text">TARIFF PLANS</a>
 		</div>
 
 		<ul class="nav">
 			<li class="@yield('service_active')">
 				<a href="#">
-					<i class="pe-7s-add-user"></i>
-					<p>ADD SERVICE</p>
+					<i class="pe-7s-cash"></i>
+					<p>ADD TARIFF PLAN</p>
 				</a>
 			</li>
-			<li class="@yield('all_service_active')">
+			<!-- <li class="@yield('all_service_active')">
 				<a href="#">
 					<i class="pe-7s-add-user"></i>
 					<p>VIEW SERVICES</p>
@@ -42,7 +42,7 @@
 					<i class="pe-7s-cash"></i>
 					<p>PAYMENT HISTORY</p>
 				</a>
-			</li>
+			</li> -->
 			
 		</ul>
 	</div>
