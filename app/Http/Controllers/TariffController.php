@@ -8,5 +8,7 @@ use App\Http\Requests;
 
 class TariffController extends Controller
 {
-    //
+    public function create() {
+    	return view('tariff.create');
+    }
 }
