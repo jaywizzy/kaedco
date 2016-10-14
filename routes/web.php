@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('tariff.master');
 });
+
+Route::group(['prefix' => 'Tariff'], function () {
+
+    Route::get('/', 'TariffController@create')->name('store_tariff');
+});
