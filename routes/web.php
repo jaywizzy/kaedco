@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('tariff.master');
 });
+
+Route::get('/category', function() {
+	return view('category.create');
+});
