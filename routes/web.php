@@ -22,5 +22,6 @@ Route::group(['prefix' => 'Tariff'], function () {
 
 Route::group(['prefix' => 'category'], function () {
 
-    Route::get('/', 'Controller@create')->name('store_category');
+    Route::get('/', 'CategoryController@create');
+    Route::post('/', 'CategoryController@store')->name('store_category');
 });

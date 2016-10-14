@@ -29,10 +29,9 @@
                 </div>
             </div>
             <div class="col-md-4">
-                @include('layouts.sessions')
+                @include('layouts.session')
                 @include('layouts.errors')
             </div>
         </div>
     </div>
-	<button type="submit" class="btn btn-primary">Submit</button>
 @stop

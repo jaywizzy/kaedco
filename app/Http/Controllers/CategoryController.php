@@ -29,9 +29,20 @@ class CategoryController extends Controller
 	}
 
 	public function store(Request $request){
-		$this->validate($request, [
-			'description' => 'required',
-			]);
+		$this->validate($request, 
+		[
+		'description' => 'required',
+		]);
+
+		$category = $this->repo->create($request);
+        if ($category->id) {
+            return back()
+                ->with('success', 'Category successfully registered.');
+        } else {
+            return back()
+                ->withInput()
+                ->with('error', 'There was a problem creating the category. Try again');
+        }
 	}
 
 	public function showEdit($id) {
