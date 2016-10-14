@@ -89,7 +89,7 @@
                             <th>Tariff Name</th>
                             <th>Category</th>
                             <th>Rate</th>
-                            <th>Action</th>
+                            
                         </tr>
                     </thead>
                     <tfoot>
@@ -97,7 +97,7 @@
                             <th>Tariff Name</th>
                             <th>Category</th>
                             <th>Rate</th>
-                            <th>Action</th>
+                            
                         </tr>
                     </tfoot>
                     <tbody>
@@ -106,10 +106,7 @@
                                 <td>{{ $tariff->tariff_name }}</td>
                                 <td>{{ $tariff->category->category }}</td>
                                 <td>{{ $tariff->rate }}</td>                                    
-                                <td>
-                                    <a href="{{ route('get_edit') }}" class="btn btn-info btn-fill" >Edit</a>
-                                    <a class="btn btn-danger btn-fill" ">Delete</a>
-                                </td>
+                                
                             </tr>
                         @endforeach
                     </tbody>
