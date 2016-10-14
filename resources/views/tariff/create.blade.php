@@ -107,8 +107,8 @@
                                 <td>{{ $tariff->category->category }}</td>
                                 <td>{{ $tariff->rate }}</td>                                    
                                 <td>
-                                    <a class="btn btn-info btn-fill" data-toggle="modal" data-target="#myModalHorizontal">Edit</a>
-                                    <a class="btn btn-info btn-fill" ">Delete</a>
+                                    <a href="{{ route('get_edit') }}" class="btn btn-info btn-fill" >Edit</a>
+                                    <a class="btn btn-danger btn-fill" ">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
