@@ -37,7 +37,7 @@ class EloquentTariffRepository implements TariffContract
     
     private function setTariffProperties($tariff, $request) {
         $tariff->tariff_name = $request->tariff_name;
-        $tariff->category = $request->category;
+        $tariff->category_id = $request->category;
         $tariff->rate = $request->rate;        
     }
 }
