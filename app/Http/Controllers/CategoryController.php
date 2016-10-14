@@ -15,6 +15,9 @@ class CategoryController extends Controller
 		$this->repo = $categoryContract;
 
 	}
+	public function create(){
+		return view('category.create');
+	}
 
 	public function index(){
 		$categories = $this->repo->findAll();
@@ -22,7 +25,7 @@ class CategoryController extends Controller
 	}
 
 	public function show(){
-		return view('category.create');
+		return view('category.show');
 	}
 
 	public function store(Request $request){
@@ -30,4 +33,9 @@ class CategoryController extends Controller
 			'description' => 'required',
 			]);
 	}
+
+	public function showEdit($id) {
+        $categories = $this->repo->findById($id);
+        return view('category.edit', ['category', $category]);
+    }
 }
