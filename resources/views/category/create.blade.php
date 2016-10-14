@@ -43,7 +43,7 @@
                     <tbody>
                         @foreach($categories as $category )
                             <tr>                                    
-                                <td>{{ $category->description }}</td>
+                                <td>{{ $category->category }}</td>
                             </tr>
                         @endforeach
                     </tbody>
