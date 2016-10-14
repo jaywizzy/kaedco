@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Session;
-use App\Tariff;
 
 use App\Repositories\Tariff\TariffContract;
 

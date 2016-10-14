@@ -32,7 +32,7 @@ class EloquentCategoryRepository implements CategoryContract{
 
 	public function findById($categoryid)
 	{
-		return Category::find($category);
+		return Category::find($categoryid);
 
 	}
 
@@ -42,7 +42,7 @@ class EloquentCategoryRepository implements CategoryContract{
 	}
 
 	public function setCategoryProperties($category, $request){
-		$category->description = $request->description;
+		$category->category = $request->category;
 
 	}
 }

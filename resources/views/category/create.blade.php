@@ -29,8 +29,25 @@
                 </div>
             </div>
             <div class="col-md-4">
-                @include('layouts.session')
+                @include('layouts.sessions')
                 @include('layouts.errors')
+            </div>
+
+            <div class="col-md-12">
+                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($categories as $category )
+                            <tr>                                    
+                                <td>{{ $category->description }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

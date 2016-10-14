@@ -23,6 +23,6 @@ Route::group(['prefix' => 'Tariff'], function () {
 
 Route::group(['prefix' => 'category'], function () {
 
-    Route::get('/', 'CategoryController@create');
+    Route::get('/', 'CategoryController@create')->name('get_category');
     Route::post('/', 'CategoryController@store')->name('store_category');
 });

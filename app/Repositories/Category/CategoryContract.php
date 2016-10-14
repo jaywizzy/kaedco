@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories\Category;
+
 interface CategoryContract
 {
 	public function create($request);
@@ -8,4 +9,4 @@ interface CategoryContract
 	public function remove($categoryid);
 	public function findById($categoryid);
 	public function findAll();
-}
+}																																												
