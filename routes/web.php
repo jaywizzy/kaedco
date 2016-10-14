@@ -19,3 +19,8 @@ Route::group(['prefix' => 'Tariff'], function () {
 
     Route::get('/', 'TariffController@create')->name('store_tariff');
 });
+
+Route::group(['prefix' => 'category'], function () {
+
+    Route::get('/', 'Controller@create')->name('store_category');
+});
