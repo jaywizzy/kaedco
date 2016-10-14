@@ -2,6 +2,9 @@
 
 namespace App\Repositories\Tariff;
 
+use App\Repositories\Tariff\TariffContract;
+use App\Tariff;
+
 class EloquentTariffRepository implements TariffContract
 {
 
@@ -34,6 +37,7 @@ class EloquentTariffRepository implements TariffContract
     
     private function setTariffProperties($tariff, $request) {
         $tariff->tariff_name = $request->tariff_name;
+        $tariff->category = $request->category;
         $tariff->rate = $request->rate;        
     }
 }
