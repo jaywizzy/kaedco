@@ -19,7 +19,7 @@ Route::group(['prefix' => 'Tariff'], function () {
 
     Route::get('/', 'TariffController@create')->name('get_tariff');
     Route::post('/', 'TariffController@store')->name('store_tariff');
-    Route::get('/edit', 'TariffController@getEdit')->name('get_edit')
+    Route::get('/edit', 'TariffController@getEdit')->name('get_edit');
     Route::put('/edit', 'TariffController@update')->name('post_update');
 });
 
