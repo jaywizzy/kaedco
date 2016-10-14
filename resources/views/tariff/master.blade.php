@@ -29,10 +29,10 @@
 </head>
 <body>
     <div class="wrapper">
-        @include('account.sidebar')
+        @include('tariff.sidebar')
 
         <div class="main-panel">
-            @include('account.navbar')
+            @include('tariff.navbar')
 
             <div class="content">
                 @yield('content')
