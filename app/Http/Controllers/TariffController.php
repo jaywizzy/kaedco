@@ -50,6 +50,11 @@ class TariffController extends Controller
 
     }
 
+    public function getEdit(){
+    	$tariffid = $this->repo->findById($id
+    	return view('tariff.edit');
+    }
+
     // public function remove() {
     //     // Ajax
     // }
