@@ -10,7 +10,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Add a Service</h4>
+                        <h4 class="title">Add a Tariff Plan</h4>
                     </div>
                     <div class="content">
                         {{Form::open(['route' => 'store_tariff', 'method' => 'POST'])}}
