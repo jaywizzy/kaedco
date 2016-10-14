@@ -8,20 +8,24 @@ use App\Http\Requests;
 use Session;
 
 use App\Repositories\Tariff\TariffContract;
+use App\Repositories\Category\CategoryContract;
 
 class TariffController extends Controller
 {
     
 
     protected $repo;
+    protected $categoryRepo;
 
-    public function __construct(TariffContract $tariffContract) {
+    public function __construct(TariffContract $tariffContract, CategoryContract $categoryContract) {
         $this->repo = $tariffContract;
+        $this->categoryRepo = $categoryContract;
     }
 
     public function create() {
     	$tariffs = $this->repo->findAll();
-    	return view('tariff.create')->with('tariffs', $tariffs);
+    	$categories = $this->categoryRepo->findAll();
+    	return view('tariff.create')->with('tariffs', $tariffs)->with('categories', $categories);
     }
 
    
