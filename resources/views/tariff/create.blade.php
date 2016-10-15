@@ -26,6 +26,8 @@
                     </div>
                     <div class="content">
                         {{Form::open(['route' => 'store_tariff', 'method' => 'POST'])}}
+                            {{ csrf_token() }}
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -121,62 +123,9 @@
         
 
         <!-- Modal -->
-        <div class="modal fade" id="myModalHorizontal" tabindex="10000" role="dialog" 
-             aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" 
-                           data-dismiss="modal">
-                               <span aria-hidden="true">&times;</span>
-                               <span class="sr-only">Close</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Tariff Plan</h4>
-                    </div>
-            
-                    <!-- Modal Body -->
-                    <div class="modal-body">                    
-                        <form class="form-horizontal" role="form" action="">
-                            <div class="form-group">
-                                <label  class="col-sm-2 control-label" for="tariff_name">Tariff Name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="tariff_name" class="form-control" value="" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputPassword3" >Category</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="category" class="form-control"  placeholder="Password"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="rate" >Rate</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="rate" class="form-control" placeholder="Rate"/>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default">Sign in</button>
-                                </div>
-                            </div>
-                        </form>        
-                    </div>
-                    
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Close
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        Save changes
-                    </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+
+        <!-- modal ends -->
 
     <!-- </div> -->
     <script type="text/javascript">
@@ -184,4 +133,77 @@
             $('#example').DataTable();
         } );
     </script>
+
+    <p class="text-center">
+        <button class="btn btn-default" data-toggle="modal" data-target="#loginModal">Login</button>
+    </p>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title">Login</h5>
+                </div>
+
+                <div class="modal-body">
+                    <!-- The form is placed inside the body of modal -->
+                    <form id="loginForm" method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Username</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" name="username" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Password</label>
+                            <div class="col-xs-5">
+                                <input type="password" class="form-control" name="password" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-5 col-xs-offset-3">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function() {
+        $('#loginForm').formValidation({
+            framework: 'bootstrap',
+            excluded: ':disabled',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
 @stop
