@@ -32,7 +32,7 @@ class TariffController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'tariff_name' => 'required',
-            // 'cetegory' => 'required',
+            'category' => 'required',
             'rate' => 'required',
             
         ]);
