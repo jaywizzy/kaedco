@@ -177,7 +177,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
  		App\Providers\HighTensionServiceProvider::class,
+=======
+
+ 		App\Providers\AreaOfficeServiceProvider::class,
+>>>>>>> 2bfeff90683e7baf2f5e02452281c57fb9a203ed
  		App\Providers\BookCodeServiceProvider::class,
  		App\Providers\SettingServiceProvider::class,
  		App\Providers\CategoryServiceProvider::class,
