@@ -8,28 +8,33 @@ use App\Http\Requests;
 use Session;
 
 use App\Repositories\Tariff\TariffContract;
+use App\Repositories\Category\CategoryContract;
 
 class TariffController extends Controller
 {
     
 
     protected $repo;
+    protected $categoryRepo;
 
-    public function __construct(TariffContract $tariffContract) {
+    public function __construct(TariffContract $tariffContract, CategoryContract $categoryContract) {
         $this->repo = $tariffContract;
+        $this->categoryRepo = $categoryContract;
     }
 
     public function create() {
     	$tariffs = $this->repo->findAll();
-    	return view('tariff.create')->with('tariffs', $tariffs);
+    	$categories = $this->categoryRepo->findAll();
+    	return view('tariff.create')->with('tariffs', $tariffs)->with('categories', $categories);
     }
 
    
     public function store(Request $request) {
         $this->validate($request, [
             'tariff_name' => 'required',
-            // 'cetegory' => 'required',
-            'rate' => 'required',
+            'category' => 'required',
+            'pre_rate' => 'required',
+            'post_rate' => 'required',
             
         ]);
 
@@ -44,6 +49,11 @@ class TariffController extends Controller
         }
 
 
+    }
+
+    public function getEdit(){
+    	$tariffid = $this->repo->findById($id);
+    	return view('tariff.edit');
     }
 
     // public function remove() {

@@ -3,24 +3,21 @@
 @section('service_active')
     active
 @stop
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Add a Tariff Plan</h4>
+                        <h4 class="title">Edit a Tariff Plan</h4>
                     </div>
                     <div class="content">
-                        {{Form::open(['route' => 'store_tariff', 'method' => 'POST'])}}
-                            
-                            
+                        {{Form::open(['route' => 'post_update', 'method' => 'POST'])}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Tariff Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Tariff Name" name="tariff_name" value="{{old('tariff_name')}}">
+                                        <input type="text" class="form-control" placeholder="Service Description" name="tariff_name" value="{{old('tariff_name') ? old(tariff_name) : $tariff->tariff_name}}">
                                     </div>
                                 </div>
                             </div>
@@ -38,31 +35,19 @@
                                     </div>
                                 </div>                               
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                      <div class="form-group">
-                                        <label>Pre Rate</label>
-                                        <input type="text" class="form-control" placeholder="Enter Pre Rate" name="pre_rate" value="{{old('pre_rate')}}">
+                                        <label>Rate</label>
+                                        <input type="text" class="form-control" placeholder="Rate" name="rate" value="{{old('rate')}}">
                                     </div>
                                 </div>                               
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                     <div class="form-group">
-                                        <label>Post Rate</label>
-                                        <input type="text" class="form-control" placeholder="Enter Post Rate" name="post_rate" value="{{old('post_rate')}}">
-                                    </div>
-                                </div>                               
-                            </div>
-
-                            <button type="submit" class="btn btn-info btn-fill pull-right btn-pad" style="padding-right: 40; padding-left: 40;">Save Tariff</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Service</button>
                             <div class="clearfix"></div>
                         {{ Form::close() }}
                     </div>                    
                 </div>
-
             </div>
             <div class="col-md-4">
                 @include('layouts.sessions')
@@ -76,18 +61,16 @@
                         <tr>
                             <th>Tariff Name</th>
                             <th>Category</th>
-                            <th>Pre Rate</th>
-                            <th>Post Rate</th>
-                            
+                            <th>Rate</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Tariff Name</th>
                             <th>Category</th>
-                            <th>Pre Rate</th>
-                            <th>Post Rate</th>
-                            
+                            <th>Rate</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -95,9 +78,11 @@
                             <tr>                                    
                                 <td>{{ $tariff->tariff_name }}</td>
                                 <td>{{ $tariff->category->category }}</td>
-                                <td>{{ $tariff->pre_rate }}</td>
-                                <td>{{ $tariff->post_rate }}</td>
-                                
+                                <td>{{ $tariff->rate }}</td>                                    
+                                <td>
+                                    <a href="#" class="btn btn-info btn-fill" >Edit</a>
+                                    <a class="btn btn-danger btn-fill" ">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -107,21 +92,10 @@
 
         </div>
     </div>
-    <!-- <div class="row"> -->
-        <!-- Button trigger modal -->
-        
-
-        <!-- Modal -->
-        
-
-        <!-- modal ends -->
-
     <!-- </div> -->
     <script type="text/javascript">
         $(document).ready(function() {
             $('#example').DataTable();
         } );
     </script>
-
-
 @stop
