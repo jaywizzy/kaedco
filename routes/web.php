@@ -39,5 +39,10 @@ Route::group(['prefix' => 'bookcode'], function () {
 	Route::post('/', 'BookCodeController@store')->name('store_bookcode');
 });
 
+Route::group(['prefix' => 'hightension'], function () {
+    Route::get('/', 'HighTensionController@create')->name('get_hightension');
+    Route::post('/', 'HighTensionController@store')->name('store_hightension');
+});
+
 
 
