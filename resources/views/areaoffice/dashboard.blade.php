@@ -1,7 +1,7 @@
-@extends('tariff.master')
+@extends('areaoffice.master')
 
 @section('content')
-    <div>Category</div>
+    <div>Area Office</div>
 @stop
 
 @section('dashboard_active')

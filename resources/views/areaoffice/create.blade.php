@@ -10,19 +10,38 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Add new Category</h4>
+                        <h4 class="title">Add new Area Office</h4>
                     </div>
                     <div class="content">
-                        {{Form::open(['route' => 'store_category', 'method' => 'POST'])}}
+                        {{Form::open(['route' => 'store_area_office', 'method' => 'POST'])}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Description</label>
-                                        <input type="text" class="form-control" placeholder="Category name" name="category" value="{{old('category')}}">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Area Office name" name="area_office_name" value="{{old('area_office_name')}}">
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Category</button>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>NERC Code</label>
+                                        <input type="text" class="form-control" placeholder="Enter Area Office name" name="nerc_code" value="{{old('nerc_code')}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>KAEDCO Code</label>
+                                        <input type="text" class="form-control" placeholder="Enter Area Office name" name="kaedc_code" value="{{old('kaedc_code')}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Submit</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -37,13 +56,24 @@
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Category</th>
+                            <th>Area Office Name</th>
+                            <th>NERC Code</th>
+                            <th>KAEDCO Code</th>
                         </tr>
                     </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Area Office Name</th>
+                            <th>NERC Code</th>
+                            <th>KAEDCO Code</th>                            
+                        </tr>
+                    </tfoot>
                     <tbody>
-                        @foreach($categories as $category )
+                        @foreach( $areaOffices as $areaoffice )
                             <tr>                                    
-                                <td>{{ $category->category }}</td>
+                                <td>{{ $areaoffice->area_office_name }} </td>
+                                <td>{{ $areaoffice->nerc_code }}</td>
+                                <td>{{ $areaoffice->kaedc_code }}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories\AreaOffice;
+use App\AreaOffice;
 
 class EloquentAreaOfficeRepository implements AreaOfficeContract
 {
@@ -14,7 +15,7 @@ class EloquentAreaOfficeRepository implements AreaOfficeContract
     
     public function edit($areaOfficeId, $request) {
         $areaOffice = $this->findById($areaOfficeId);
-        $this->setTariffProperties($areaOffice, $request);
+        $this->setAreaOfficeProperties($areaOffice, $request);
         $areaOffice->save();
         return $areaOffice;
     }
@@ -32,7 +33,7 @@ class EloquentAreaOfficeRepository implements AreaOfficeContract
         return AreaOffice::all();
     }
     
-    private function setTariffProperties($areaOffice, $request) {
+    private function setAreaOfficeProperties($areaOffice, $request) {
         $areaOffice->area_office_name = $request->area_office_name;
         $areaOffice->nerc_code = $request->nerc_code;
         $areaOffice->kaedc_code = $request->kaedc_code;
