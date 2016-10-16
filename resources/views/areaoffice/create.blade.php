@@ -24,19 +24,17 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>NERC Code</label>
-                                        <input type="text" class="form-control" placeholder="Enter Area Office name" name="nerc_code" value="{{old('nerc_code')}}">
+                                        <input type="text" class="form-control" placeholder="Enter NERC Code" name="nerc_code" value="{{old('nerc_code')}}">
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
+                            
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>KAEDCO Code</label>
-                                        <input type="text" class="form-control" placeholder="Enter Area Office name" name="kaedc_code" value="{{old('kaedc_code')}}">
+                                        <input type="text" class="form-control" placeholder="Enter KAEDCO Code" name="kaedc_code" value="{{old('kaedc_code')}}">
                                     </div>
                                 </div>
                             </div>
