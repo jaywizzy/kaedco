@@ -8,7 +8,7 @@ class Substation extends Model
 {
     protected $primaryKey = 'injectionCode';
 
-    protected $incrementing = false;
+    public $incrementing = false;
 
     public function areaOffice(){
         return $this->belongsTo('App\AreaOffice');
