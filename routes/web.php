@@ -28,3 +28,8 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('/', 'CategoryController@create')->name('get_category');
     Route::post('/', 'CategoryController@store')->name('store_category');
 });
+
+Route::group(['prefix' => 'feeder'], function () {
+	Route::get('/', 'FeederController@create')->name('get_feeder');
+	Route::post('/', 'FeederController@store')->name('store_feeder');
+});
