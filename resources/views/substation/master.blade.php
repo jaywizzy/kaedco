@@ -6,7 +6,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-	<title>KAEDCO</title>
+	<title>KAEDCO - Welcome</title>
 
     <link rel="icon" type="image/png" href="/creativetim/img/favicon.ico">
     <link href="/creativetim/css/bootstrap.min.css" rel="stylesheet" />
@@ -16,11 +16,6 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="/creativetim/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
-    <!-- data table resources -->
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">    
-
     @yield('stylesheets')
 
     <script src="/creativetim/js/jquery-1.10.2.js" type="text/javascript"></script>
@@ -29,27 +24,22 @@
     <script src="/creativetim/js/bootstrap-notify.js"></script>
 	<script src="/creativetim/js/light-bootstrap-dashboard.js"></script>
 	<script src="/creativetim/js/demo.js"></script>
-	<script src="/js/anims.js"></script>
-
-    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-
     @yield('scripts')
 
 </head>
 <body>
     <div class="wrapper">
-        
+        @include('substation.sidebar')
 
         <div class="main-panel">
-            <!-- @yield('navbar') -->
+            @include('substation.navbar')
 
             <div class="content">
                 @yield('content')
             </div>
 
-            <!-- @include('layouts.footer') -->
+            @include('layouts.footer')
+
         </div>
     </div>
 </body>

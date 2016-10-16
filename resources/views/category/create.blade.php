@@ -14,6 +14,7 @@
                     </div>
                     <div class="content">
                         {{Form::open(['route' => 'store_category', 'method' => 'POST'])}}
+                        {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -33,16 +34,20 @@
                 @include('layouts.errors')
             </div>
 
-            <div class="col-md-12">
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <div class="col-md-6">
+                <table id="example" class="table table-hover table-striped" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Category</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php $a=0; ?>
                         @foreach($categories as $category )
-                            <tr>                                    
+                    <?php $a++ ?>
+                            <tr> 
+                                <td> {{$a}} </td>                                   
                                 <td>{{ $category->category }}</td>
                             </tr>
                         @endforeach

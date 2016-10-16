@@ -4,12 +4,6 @@
     active
 @stop
 
-<style type="text/css">
-    .btn-pad {
-        padding-right: 400;
-        padding-left: 400;
-    }
-</style>
 @section('content')
     <div class="container-fluid">
         <div class="row">
