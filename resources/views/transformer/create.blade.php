@@ -1,4 +1,4 @@
-@extends('areaoffice.master')
+@extends('transformer.master')
 
 @section('service_active')
     active
@@ -10,10 +10,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Add new Area Office</h4>
+                        <h4 class="title">Add new Transformer</h4>
                     </div>
                     <div class="content">
-                        {{Form::open(['route' => 'store_area_office', 'method' => 'POST'])}}
+                        {{Form::open(['route' => 'store_transformer', 'method' => 'POST'])}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
