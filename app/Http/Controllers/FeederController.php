@@ -7,18 +7,22 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Session;
 use App\Repositories\Feeder\FeederContract;
+use App\Repositories\AreaOffice\AreaOfficeContract;
 
 class FeederController extends Controller
 {
     protected $repo;
+    protected $areaRepo;
 
-    public function __construct(FeederContract $feederContract)
+    public function __construct(FeederContract $feederContract, AreaOfficeContract $areaOfficeContract)
     {
     	$this->repo = $feederContract;
+        $this->areaRepo = $areaOfficeContract;
     }
 
     public function create() {
-        return view('feeder.create');
+        $areaOffices = $this->areaRepo->findAll();
+        return view('feeder.create')->with('areaOffices', $areaOffices);
     }
 
     public function store(Request $request) {

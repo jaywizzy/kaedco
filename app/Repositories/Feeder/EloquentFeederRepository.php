@@ -19,7 +19,7 @@ class EloquentFeederRepository implements FeederContract
 		$feeder->feeder_code = $request->feeder_code;
 		$feeder->injection_code_nerc = $request->injection_code_nerc;
 		$feeder->injection_code_kaedc = $request->injection_code_kaedc;
-		$feeder->area_office_code_nerc = $request->area_office_code_nerc;
+		$feeder->area_office_code_nerc = $request->area_office;
 		$feeder->area_office_code_kaedc = $area_office_code_kaedc;
 	}
 }

@@ -16,10 +16,15 @@ class CreateFeedersTable extends Migration
         Schema::create('feeders', function (Blueprint $table) {
             $table->string('name');
             $table->string('feeder_code', 2);
-            $table->string('injection_code_nerc', 3);
-            $table->string('injection_code_kaedc', 3);
-            $table->string('area_office_code_nerc', 2);
-            $table->string('area_office_code_kaedc', 2);
+            $table->string('injection_code_nerc')->unsigned();
+            $table->string('injection_code_kaedc')->unsigned();
+            $table->foreign('injection_code_nerc')->references('nerc_code')->on('area_offices');
+
+            $table->string('area_office_code_nerc')->unsigned();
+            $table->foreign('area_office_code_nerc')->references('nerc_code')->on('area_offices');
+
+            $table->string('area_office_code_kaedc')->unsigned();
+            $table->foreign('area_office_code_kaedc')->references('kaedc_code')->on('area_offices');
             $table->timestamps();
         });
     }

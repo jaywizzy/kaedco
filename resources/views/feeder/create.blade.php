@@ -32,7 +32,9 @@
                                                     <option value="">
                                                         Select Area Office
                                                     </option>
-
+                                                    @foreach($areaOffices as $areaOffice)
+                                                        <option value="{{$areaOffice->nerc_code}}">{{$areaOffice->nerc_code}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
