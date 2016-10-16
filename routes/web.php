@@ -28,3 +28,16 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('/', 'CategoryController@create')->name('get_category');
     Route::post('/', 'CategoryController@store')->name('store_category');
 });
+
+Route::group(['prefix' => 'settings'], function () {
+	Route::get('/', 'SettingController@create')->name('get_setting');
+	Route::post('/', 'SettingController@store')->name('store_setting');
+});
+
+Route::group(['prefix' => 'bookcode'], function () {
+	Route::get('/', 'BookCodeController@create')->name('get_bookcode');
+	Route::post('/', 'BookCodeController@store')->name('store_bookcode');
+});
+
+
+
