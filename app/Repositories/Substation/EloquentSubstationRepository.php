@@ -42,7 +42,10 @@ class EloquentSubstationRepository implements SubstationContract
     }
 
     public function setSubstationProperties($substation, $request){
-        $substation->substation = $request->substation;
+        $substation->substation_name = $request->substation_name;
+        $substation->injectionCode = $request->injectionCode;
+        $substation->area_office_nerc = $request->area_office_nerc;
+        $substation->area_office_kaedc = $request->area_office_kaedc;
 
     }
 }
