@@ -21,6 +21,7 @@ class EloquentCategoryRepository implements CategoryContract{
 		$this->setCategoryProperties($category, $request);
 		$category->save();
 		return $category;
+		
 	}
 
 	public function remove($categoryid)
@@ -46,3 +47,4 @@ class EloquentCategoryRepository implements CategoryContract{
 
 	}
 }
+
