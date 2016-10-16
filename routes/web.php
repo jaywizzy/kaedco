@@ -28,3 +28,8 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('/', 'CategoryController@create')->name('get_category');
     Route::post('/', 'CategoryController@store')->name('store_category');
 });
+
+Route::group(['prefix' => 'area-office'], function () {
+	Route::get('/', 'AreaOfficeController@create')->name('get_area_office');
+	Route::post('/', 'AreaOfficeController@store')->name('store_area_office');
+});
