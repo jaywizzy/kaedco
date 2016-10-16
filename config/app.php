@@ -177,7 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-<<<<<<< HEAD
+
 
 
  		App\Providers\HighTensionServiceProvider::class,
@@ -191,14 +191,14 @@ return [
  		App\Providers\BookCodeServiceProvider::class,
  		App\Providers\SettingServiceProvider::class,
 
-=======
+
  		App\Providers\FeederServiceProvider::class,
  		App\Providers\SubstationServiceProvider::class,
  		App\Providers\HighTensionServiceProvider::class,
  		App\Providers\AreaOfficeServiceProvider::class,
  		App\Providers\BookCodeServiceProvider::class,
  		App\Providers\SettingServiceProvider::class,
->>>>>>> d6f5c7e381d7991b654b9b65d813845584ad754c
+
  		App\Providers\CategoryServiceProvider::class,
  		App\Providers\TariffServiceProvider::class,
 

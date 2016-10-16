@@ -48,20 +48,18 @@ Route::group(['prefix' => 'bookcode'], function () {
 	Route::post('/', 'BookCodeController@store')->name('store_bookcode');
 });
 
-<<<<<<< HEAD
-=======
+
 Route::group(['prefix' => 'substation'], function () {
     Route::get('/', 'SubstationController@create')->name('get_subsection');
     Route::post('/', 'SubstationController@store')->name('store_substation');
 });
->>>>>>> d6f5c7e381d7991b654b9b65d813845584ad754c
+
 
 Route::group(['prefix' => 'hightension'], function () {
     Route::get('/', 'HighTensionController@create')->name('get_hightension');
     Route::post('/', 'HighTensionController@store')->name('store_hightension');
-<<<<<<< HEAD
+
 });
 
-=======
-});
->>>>>>> d6f5c7e381d7991b654b9b65d813845584ad754c
+
+
