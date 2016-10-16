@@ -18,7 +18,8 @@ class CreateTariffsTable extends Migration
             $table->string('tariff_name');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('rate');
+            $table->integer('pre_rate');
+            $table->integer('post_rate');
             $table->timestamps();
         });
     
