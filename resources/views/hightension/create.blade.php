@@ -34,7 +34,9 @@
                                     <div class="form-group">
                                         <label>Area Office</label>
                                         <select>
-                                            <option> </option>
+                                            @foreach ($areaoffices as $areaoffice)
+                                                <option value="{{$areaoffice->nerc . $areaoffice->kaedc}}"> {{$areaoffice->area_office_name}} </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -42,7 +44,9 @@
                                     <div class="form-group">
                                         <label>Substation</label>
                                         <select>
-                                            <option> </option>
+                                            @foreach ($substations as $substation)
+                                                <option value="{{$substation->nerc . $substation->kaedc}}"> {{$substation->name}} </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

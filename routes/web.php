@@ -24,11 +24,14 @@ Route::group(['prefix' => 'tariff'], function () {
 });
 
 Route::group(['prefix' => 'category'], function () {
-
     Route::get('/', 'CategoryController@create')->name('get_category');
     Route::post('/', 'CategoryController@store')->name('store_category');
 });
 
+Route::group(['prefix' => 'feeder'], function () {
+	Route::get('/', 'FeederController@create')->name('get_feeder');
+	Route::post('/', 'FeederController@store')->name('store_feeder');
+});
 
 Route::group(['prefix' => 'area-office'], function () {
 	Route::get('/', 'AreaOfficeController@create')->name('get_area_office');
@@ -51,10 +54,13 @@ Route::group(['prefix' => 'substation'], function () {
     Route::post('/', 'SubstationController@store')->name('store_substation');
 });
 
+
 Route::group(['prefix' => 'hightension'], function () {
     Route::get('/', 'HighTensionController@create')->name('get_hightension');
     Route::post('/', 'HighTensionController@store')->name('store_hightension');
+
 });
+
 
 Route::group(['prefix' => 'Transformer'], function () {
 	Route::get('/', 'TransformerController@create')->name('get_transformer');
