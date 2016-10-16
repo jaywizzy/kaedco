@@ -52,7 +52,7 @@ class AreaOfficeController extends Controller
 
     public function edit($nerc_code) {
     	$nerc_code -> $this->repo->edit()
-    	return view('areaoffice.edit', ['data' => Customer::find($id)]);
+    	return view('areaoffice.edit')->with('nerc_code');
     }
 
 
