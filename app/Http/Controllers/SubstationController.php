@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Substation;
+use App\Repositories\Substation\SubstationContract;
+use App\Repositories\AreaOffice\AreaOfficeContract;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -10,23 +11,26 @@ use App\Http\Requests;
 class SubstationController extends Controller
 {
     protected $repo;
+    protected $areaOfficeRepo;
 
-    public function __construct(SubstationContract $substationContract){
+    public function __construct(SubstationContract $substationContract, AreaOfficeContract $areaOfficeContract){
         $this->repo = $substationContract;
+        $this->areaOfficeRepo = $areaOfficeContract;
 
     }
     public function create(){
         $substations = $this->repo->findAll();
-        return view('substation.create')->with('substations', $substations);
+        $areaOffices = $this->areaOfficeRepo->findAll();
+        return view('substation.create')->with('substations', $substations)->with('areaOffices', $areaOffices);
     }
 
     public function store(Request $request){
         $this->validate($request,
             [
-                'name' => 'required',
-                'injectionCode' => 'requireed',
-                'area_code_nerc' => 'required',
-                'area_code_nerc' => 'required',
+                'substation_name' => 'required',
+                'injectionCode' => 'required',
+                'area_office_nerc' => 'required',
+                'area_office_kaedc' => 'required',
             ]);
 
         $substation = $this->repo->create($request);
