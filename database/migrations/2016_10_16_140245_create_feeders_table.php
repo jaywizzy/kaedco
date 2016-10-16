@@ -17,6 +17,8 @@ class CreateFeedersTable extends Migration
             $table->string('name');
             $table->string('feeder_code', 2);
             $table->string('injection_code_nerc')->unsigned();
+            $table->foreign('injection_code_nerc')->references('nerc_code')->on('area_offices');
+            
             $table->string('injection_code_kaedc')->unsigned();
             $table->foreign('injection_code_nerc')->references('nerc_code')->on('area_offices');
 
