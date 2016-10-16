@@ -35,7 +35,7 @@
                                         <label>Area Office</label>
                                         <select>
                                             @foreach ($areaoffices as $areaoffice)
-                                                <option value="{{$areaoffice->nerc . $areaoffice->kaedc}}"> {{$areaoffice->area_office_name}} </option>
+                                                <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}"> {{$areaoffice->area_office_name}} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -45,7 +45,7 @@
                                         <label>Substation</label>
                                         <select>
                                             @foreach ($substations as $substation)
-                                                <option value="{{$substation->nerc . $substation->kaedc}}"> {{$substation->name}} </option>
+                                                <option value="{{$substation->area_office_nerc . $substation->area_office_kaedc}}"> {{$substation->substation_name}} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -54,7 +54,9 @@
                                     <div class="form-group">
                                         <label>Feeder</label>
                                         <select>
-                                            <option> </option>
+                                            @foreach ($feeders as $feeder)
+                                                <option value="{{$substation->nerc . $substation->kaedc}}"> {{$substation->name}} </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

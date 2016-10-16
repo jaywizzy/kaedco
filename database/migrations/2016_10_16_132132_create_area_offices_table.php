@@ -16,8 +16,8 @@ class CreateAreaOfficesTable extends Migration
         Schema::create('area_offices', function (Blueprint $table) {
             // $table->increments('id');
             $table->string('area_office_name');
-            $table->integer('nerc_code', 2);
-            $table->integer('kaedc_code');
+            $table->string('nerc_code', 2);
+            $table->string('kaedc_code', 2);
 
             $table->timestamps();
         });

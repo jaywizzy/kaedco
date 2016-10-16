@@ -26,19 +26,19 @@ class AreaOfficeController extends Controller
         
         $this->validate($request, [
             'area_office_name' => 'required',
-            'nerc_code' => 'required',
-            'kaedc_code' => 'required',
+            'nerc_code' => 'required|min:2|max:2',
+            'kaedc_code' => 'required|min:2|max:2',
             
         ]);
 
         $areaOffice = $this->repo->create($request);
-        if ($areaOffice->id) {
+        if ($areaOffice->nerc_code) {
             return back()
-                ->with('success', 'Tariff Plan successfully saved.');
+                ->with('success', 'Area Office successfully saved.');
         } else {
             return back()
                 ->withInput()
-                ->with('error', 'There was a problem saving the Tariff Plan. Try again');
+                ->with('error', 'There was a problem saving the Area Office. Try again');
         }
 
 

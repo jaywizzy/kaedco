@@ -27,7 +27,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>INJECTION CODE</label>
-                                        <input type="text" class="form-control" placeholder="Enter Injection Code" name="injectionCode" value="{{old('injectionCode')}}">
+                                        <input type="text" class="form-control" placeholder="Enter Injection Code" name="injection_code" value="{{old('injection_code')}}">
                                     </div>
                                 </div>
                             </div>
@@ -35,29 +35,16 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>AREA OFFICE NERC</label>
-                                        <select class="form-control" name="area_office_nerc" value="{{old('area_office_nerc')}}">
-                                            <option value="">Select NERC Code</option>
-                                            @foreach($areaOffices as $areaOffice)
-                                                <option value="{{$areaOffice->nerc_code}}">{{$areaOffice->nerc_code}}</option>
+                                        <label>AREA OFFICE</label>
+                                        <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
+                                            @foreach($areaoffices as $areaoffice)
+                                                <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">   
+                                                    {{$areaoffice->area_office_name}}
+                                                </option>
                                             @endforeach
                                         </select>
 
                                 
-                                    </div>
-                                </div>
-                            </div>
-
-                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-
-                                        <select class="form-control" name="area_office_kaedc" value="{{old('area_office_kaedc')}}">
-                                            <option value="">Select NERC Code</option>
-                                            @foreach($areaOffices as $areaOffice)
-                                                <option value="{{$areaOffice->kaedc_code}}">{{$areaOffice->kaedc_code}}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -83,19 +70,12 @@
                             <th>Area Office Kaedc</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Sub-Station Name</th>
-                            <th>Injection Code</th>
-                            <th>Area Office Kaedc</th>
-                            <th>Area Office Kaedc</th>                            
-                        </tr>
-                    </tfoot>
+                  
                     <tbody>
                         @foreach( $substations as $substation )
                             <tr>                                    
                                 <td>{{ $substation->substation_name }} </td>
-                                <td>{{ $substation->injectionCode }}</td>
+                                <td>{{ $substation->injection_code }}</td>
                                 <td>{{ $substation->area_office_nerc }}</td>
                                 <td>{{ $substation->area_office_kaedc }}</td>
                             </tr>

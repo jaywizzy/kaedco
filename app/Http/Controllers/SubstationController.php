@@ -11,32 +11,31 @@ use App\Http\Requests;
 class SubstationController extends Controller
 {
     protected $repo;
-    protected $areaOfficeRepo;
+    protected $areaofficeRepo;
 
-    public function __construct(SubstationContract $substationContract, AreaOfficeContract $areaOfficeContract){
+    public function __construct(SubstationContract $substationContract, AreaOfficeContract $areaofficeContract){
         $this->repo = $substationContract;
-        $this->areaOfficeRepo = $areaOfficeContract;
+        $this->areaofficeRepo = $areaofficeContract;
 
     }
     public function create(){
         $substations = $this->repo->findAll();
-        $areaOffices = $this->areaOfficeRepo->findAll();
-        return view('substation.create')->with('substations', $substations)->with('areaOffices', $areaOffices);
+        $areaoffices = $this->areaofficeRepo->findAll();
+        return view('substation.create')->with('substations', $substations)->with('areaoffices', $areaoffices);
     }
 
     public function store(Request $request){
         $this->validate($request,
             [
                 'substation_name' => 'required',
-                'injectionCode' => 'required',
-                'area_office_nerc' => 'required',
-                'area_office_kaedc' => 'required',
+                'injection_code' => 'required|min:3|max:3',
+                'area_office_name' => 'required',
             ]);
 
         $substation = $this->repo->create($request);
-        if ($substation->injectionCode) {
+        if ($substation->injection_code) {
             return back()
-                ->with('success', 'Sub-Statioin successfully registered.');
+                ->with('success', 'Sub-Station successfully registered.');
         } else {
             return back()
                 ->withInput()
