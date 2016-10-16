@@ -45,3 +45,8 @@ Route::group(['prefix' => 'bookcode'], function () {
 	Route::post('/', 'BookCodeController@store')->name('store_bookcode');
 });
 
+Route::group(['prefix' => 'substation'], function () {
+    Route::get('/', 'SubstationController@create')->name('get_subsection');
+    Route::post('/', 'SubstationController@store')->name('store_substation');
+});
+

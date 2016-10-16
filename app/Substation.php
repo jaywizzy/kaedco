@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Substation extends Model
 {
-    protected $primaryKey = 'injectionCode';
+    // protected $primaryKey = 'injectionCode';
 
-    protected $incrementing = false;
+    // protected $incrementing = false;
 
-    public function areaOffice(){
-        return $this->belongsTo('App\AreaOffice');
-    }
+    // public function AreaOffice(){
+    //     return $this->belongsTo('App\AreaOffice');
+    // }
 
 }
