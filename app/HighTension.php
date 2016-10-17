@@ -13,4 +13,8 @@ class HighTension extends Model
     public function feeder() {
     	return $this->belongsTo('App\Feeder');
     }
+
+    public function transformer() {
+    	return $this->hasMany('App\Transformer');
+    }
 }
