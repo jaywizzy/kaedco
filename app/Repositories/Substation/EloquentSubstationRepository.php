@@ -30,6 +30,12 @@ class EloquentSubstationRepository implements SubstationContract
 
     }
 
+    /**
+     * Find an entity by id
+     *
+     * @param string $substationid
+     * @return Illuminate\Database\Eloquent\Substation
+     */
     public function findById($substationid)
     {
         return Substation::find($substationid);

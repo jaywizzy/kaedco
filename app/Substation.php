@@ -6,12 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Substation extends Model
 {
-    // protected $primaryKey = 'injectionCode';
+	/**
+     * The primary key associated with the model.
+     *
+     * @var string
+     */
 
-    // protected $incrementing = false;
+    protected $primaryKey = 'injectionCode';
 
-    // public function AreaOffice(){
-    //     return $this->belongsTo('App\AreaOffice');
-    // }
+     /**
+     * Indicates if the model should be auto incrementing
+     *
+     * @var bool
+     */
+    protected $incrementing = false;
+
+	 /**
+     * Get the substation that owns the AreaOffice.
+     */    
+
+    public function AreaOffice(){
+        return $this->belongsTo('App\AreaOffice');
+    }
 
 }
