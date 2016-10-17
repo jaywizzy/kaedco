@@ -12,15 +12,23 @@ class SubstationController extends Controller
 {
       /**
    * @var repo
-   * @var $areaOfficeRepo
+   * @var $areaofficeRepo
    */
     protected $repo;
     protected $areaOfficeRepo;
 
+<<<<<<< HEAD
     /**
     * @var constructor 
     */
     public function __construct(SubstationContract $substationContract, AreaOfficeContract $areaOfficeContract){
+=======
+
+    /**
+    * @var constructor 
+    */
+    public function __construct(SubstationContract $substationContract, AreaOfficeContract $areaofficeContract){
+>>>>>>> ed0d7df002106ba7e102b844acefc7f843350e47
         $this->repo = $substationContract;
         $this->areaOfficeRepo = $areaOfficeContract;
 
@@ -32,9 +40,17 @@ class SubstationController extends Controller
      */
     public function create(){
         $substations = $this->repo->findAll();
+<<<<<<< HEAD
         $areaOffices = $this->areaOfficeRepo->findAll();
          // load the create form (app/views/substation/create.blade.php)
         return view('substation.create')->with('substations', $substations)->with('areaOffices', $areaOffices);
+=======
+
+        $areaoffices = $this->areaofficeRepo->findAll();
+         // load the create form (app/views/substation/create.blade.php)
+        return view('substation.create')->with('substations', $substations)->with('areaoffices', $areaoffices);
+
+>>>>>>> ed0d7df002106ba7e102b844acefc7f843350e47
     }
     
     /**

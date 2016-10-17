@@ -49,7 +49,12 @@
                                         <label>AREA OFFICE</label>
                                         <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
                                             @foreach($areaoffices as $areaoffice)
+<<<<<<< HEAD
                                                 <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}
+=======
+                                                <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">
+                                                    {{$areaoffice->area_office_name}}
+>>>>>>> ed0d7df002106ba7e102b844acefc7f843350e47
                                                 </option>
                                             @endforeach
                                         </select>
