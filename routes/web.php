@@ -36,6 +36,8 @@ Route::group(['prefix' => 'feeder'], function () {
 Route::group(['prefix' => 'area-office'], function () {
 	Route::get('/', 'AreaOfficeController@create')->name('get_area_office');
 	Route::post('/', 'AreaOfficeController@store')->name('store_area_office');
+	Route::get('/edit', 'AreaOfficeController@getEdit')->name('get_edit');
+	Route::put('/edit', 'AreaOfficeController@update')->name('store_update');
 });
 
 Route::group(['prefix' => 'settings'], function () {

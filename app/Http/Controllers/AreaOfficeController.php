@@ -50,9 +50,32 @@ class AreaOfficeController extends Controller
 
     }
 
-    public function edit($nerc_code) {
-    	$nerc_code -> $this->repo->edit();
-    	return view('areaoffice.edit')->with('nerc_code');
+    public function getEdit() {
+    	// $areaOffices -> $this->repo->findAll();
+    	return view('areaoffice.edit');
+        // ->with('areaOffices', $areaOffices);
+    }
+
+    public function update(Request $request) {
+        
+        $this->validate($request, [
+            'area_office_name' => 'required',
+            'nerc_code' => 'required|min:2|max:2',
+            'kaedc_code' => 'required|min:2|max:2',
+            
+        ]);
+
+        $areaOffice = $this->repo->edit($request);
+        if ($areaOffice->nerc_code) {
+            return back()
+                ->with('success', 'Area Office successfully Updated.');
+        } else {
+            return back()
+                ->withInput()
+                ->with('error', 'There was a problem updating this Area Office. Try again');
+        }
+
+
     }
 
 
