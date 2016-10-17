@@ -64,5 +64,5 @@ Route::group(['prefix' => 'hightension'], function () {
 
 Route::group(['prefix' => 'Transformer'], function () {
 	Route::get('/', 'TransformerController@create')->name('get_transformer');
-	Route::post('/', 'TransformerController@store')->name('store_transformer')
+	Route::post('/', 'TransformerController@store')->name('store_transformer');
 });

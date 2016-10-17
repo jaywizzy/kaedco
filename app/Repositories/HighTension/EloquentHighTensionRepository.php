@@ -41,13 +41,17 @@ class EloquentHighTensionRepository implements HighTensionContract
 	}
 
 	public function setHighTensionProperties($hightension, $request) {
-		$hightension->hightension_code = $request->feeder_code_nerc;
-		$hightension->feeder_code_nerc = $request->feeder_code_nerc;
-		$hightension->feeder_code_kaedc = $request->feeder_code_kaedc;
-		$hightension->injection_code_nerc = $request->injection_code_nerc;
-		$hightension->injection_code_kaedc = $request->injection_code_kaedc;
-		$hightension->area_office_code_nerc = $request->area_office_code_nerc;
-		$hightension->area_office_code_nerc =  $request->area_office_code_nerc;
-
+		$hightension->name = $request->name;
+		$hightension->high_tension_nerc_code = $request->high_tension_nerc_code;
+		$hightension->high_tension_kaedc_code = $request->high_tension_kaedc_code;
+		$high1= str_split($request->area_office_name, 2);
+		$high2 = str_split($request->substation_name, 3);
+		$high3= str_split($request->feeder_name, 2);
+		$hightension->feeder_nerc_code= $high3[0];
+		$hightension->feeder_kaedc_code= $high3[1];
+		$hightension->injection_nerc_code= $high2[0];
+		$hightension->injection_kaedc_code= $high2[1];
+		$hightension->area_office_nerc_code= $high1[0];
+		$hightension->area_office_kaedc_code= $high1[1];
 	}
 }

@@ -44,18 +44,14 @@ class AreaOfficeController extends Controller
         } else {
             return back()
                 ->withInput()
-<<<<<<< HEAD
                 ->with('error', 'There was a problem saving the Area Office. Try again');
-=======
-                ->with('error', 'There was a problem saving this Area Office. Try again');
->>>>>>> b4e641a0cdcc78e083ecc7163e9e788c1d43c7c3
         }
 
 
     }
 
     public function edit($nerc_code) {
-    	$nerc_code -> $this->repo->edit()
+    	$nerc_code -> $this->repo->edit();
     	return view('areaoffice.edit')->with('nerc_code');
     }
 

@@ -28,12 +28,13 @@ class SubstationController extends Controller
         $this->validate($request,
             [
                 'substation_name' => 'required',
-                'injection_code' => 'required|min:3|max:3',
+                'injection_nerc_code' => 'required|min:3|max:3',
+                'injection_kaedc_code' => 'required|min:3|max:3',
                 'area_office_name' => 'required',
             ]);
 
         $substation = $this->repo->create($request);
-        if ($substation->injection_code) {
+        if ($substation->injection_nerc_code) {
             return back()
                 ->with('success', 'Sub-Station successfully registered.');
         } else {

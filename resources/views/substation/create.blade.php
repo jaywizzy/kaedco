@@ -26,8 +26,17 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>INJECTION CODE</label>
-                                        <input type="text" class="form-control" placeholder="Enter Injection Code" name="injection_code" value="{{old('injection_code')}}">
+                                        <label>INJECTION NERC CODE</label>
+                                        <input type="text" class="form-control" placeholder="Enter Injection Nerc Code" name="injection_nerc_code" value="{{old('injection_nerc_code')}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>INJECTION KAEDC CODE</label>
+                                        <input type="text" class="form-control" placeholder="Enter Injection Kaedc Code" name="injection_kaedc_code" value="{{old('injection_kaedc_code')}}">
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +74,9 @@
                     <thead>
                         <tr>
                             <th>Sub-Station Name</th>
-                            <th>Injection Code</th>
-                            <th>Area Office Kaedc</th>
+                            <th>Injection Nerc Code</th>
+                            <th>Injection Kaedc Code</th>
+                            <th>Area Office Nerc</th>
                             <th>Area Office Kaedc</th>
                         </tr>
                     </thead>
@@ -75,7 +85,8 @@
                         @foreach( $substations as $substation )
                             <tr>                                    
                                 <td>{{ $substation->substation_name }} </td>
-                                <td>{{ $substation->injection_code }}</td>
+                                <td>{{ $substation->injection_nerc_code }}</td>
+                                <td>{{ $substation->injection_kaedc_code }}</td>
                                 <td>{{ $substation->area_office_nerc }}</td>
                                 <td>{{ $substation->area_office_kaedc }}</td>
                             </tr>

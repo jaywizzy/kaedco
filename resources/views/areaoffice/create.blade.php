@@ -59,13 +59,6 @@
                             <th>KAEDCO Code</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Area Office Name</th>
-                            <th>NERC Code</th>
-                            <th>KAEDCO Code</th>                            
-                        </tr>
-                    </tfoot>
                     <tbody>
                         @foreach( $areaOffices as $areaoffice )
                             <tr>                                    

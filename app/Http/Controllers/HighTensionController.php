@@ -39,15 +39,16 @@ class HighTensionController extends Controller
 	public function store(Request $request){
 		$this->validate($request, 
 		[
-			'title' => 'required',
-			'footer' => 'required',
-			'year' => 'required',
-			'month' => 'required',
-			'company_code' => 'required',
+			'name' =>'required',
+			'high_tension_nerc_code' => 'required|min:4|max:4',
+			'high_tension_kaedc_code' => 'required|min:4|max:4',
+			'area_office_name' => 'required',
+			'substation_name' => 'required',
+			'feeder_name' => 'required',
 		]);
 
 		$hightension = $this->repo->create($request);
-        if ($hightension->high_tension_code) {
+        if ($hightension->high_tension_nerc_code) {
             return back()
                 ->with('success', 'High Tension successfully registered.');
         } else {
