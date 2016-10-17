@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
  		App\Providers\SubstationServiceProvider::class,
 
 
@@ -188,12 +189,25 @@ return [
 
 
 
- 		App\Providers\AreaOfficeServiceProvider::class,
+ 		App\Providers\TransformerServiceProvider::class,
+ 		App\Providers\SubstationServiceProvider::class,
+ 		App\Providers\HighTensionServiceProvider::class,
+ 		App\Providers\SubstationServiceProvider::class,
 
+ 		App\Providers\AreaOfficeServiceProvider::class,
  		App\Providers\BookCodeServiceProvider::class,
  		App\Providers\SettingServiceProvider::class,
 
+
 		App\Providers\CategoryServiceProvider::class,
+
+ 		App\Providers\FeederServiceProvider::class,
+ 		App\Providers\SubstationServiceProvider::class,
+ 		App\Providers\HighTensionServiceProvider::class,
+ 		App\Providers\AreaOfficeServiceProvider::class,
+ 		App\Providers\BookCodeServiceProvider::class,
+ 		App\Providers\SettingServiceProvider::class,
+ 		App\Providers\CategoryServiceProvider::class,
  		App\Providers\TariffServiceProvider::class,
 
         // laravel collective

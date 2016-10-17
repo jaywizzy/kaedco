@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HighTension extends Model
 {
-    protected $primarykey = 'high_tension_code';
+    protected $primarykey = 'high_tension_nerc_code';
 
     public $incrementing = false;
 

@@ -13,11 +13,11 @@ class EloquentAreaOfficeRepository implements AreaOfficeContract
         return $areaOffice;
     }
     
-    public function edit($areaOfficeId, $request) {
-        $areaOffice = $this->findById($areaOfficeId);
-        $this->setAreaOfficeProperties($areaOffice, $request);
-        $areaOffice->save();
-        return $areaOffice;
+    public function edit($nerc_code, $request) {
+        $nerc_code = $this->find($nerc_code);
+        $this->setAreaOfficeProperties($nerc_code, $request);
+        $nerc_code->save();
+        return $nerc_code;
     }
     
     public function remove($areaOfficeId) {

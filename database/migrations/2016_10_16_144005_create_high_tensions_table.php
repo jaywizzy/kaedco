@@ -14,13 +14,15 @@ class CreateHighTensionsTable extends Migration
     public function up()
     {
         Schema::create('high_tensions', function (Blueprint $table) {
-            $table->string('high_tension_code', 4);
-            $table->string('feeder_code_nerc');
-            $table->string('feeder_code_kaedc');
-            $table->string('injection_code_nerc');
-            $table->string('injection_code_kaedc');
-            $table->string('area_office_code_nerc');
-            $table->string('area_office_code_kaedc');
+            $table->string('name');
+            $table->string('high_tension_nerc_code', 4);
+            $table->string('high_tension_kaedc_code', 4);
+            $table->string('feeder_nerc_code');
+            $table->string('feeder_kaedc_code');
+            $table->string('injection_nerc_code');
+            $table->string('injection_kaedc_code');
+            $table->string('area_office_nerc_code');
+            $table->string('area_office_kaedc_code');
             $table->timestamps();
         });
     }

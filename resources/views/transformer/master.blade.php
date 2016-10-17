@@ -8,7 +8,6 @@
 
 	<title>KAEDCO - Welcome</title>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="/creativetim/img/favicon.ico">
     <link href="/creativetim/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/creativetim/css/animate.min.css" rel="stylesheet"/>
@@ -29,13 +28,11 @@
 
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <div class="wrapper">
-        @include('category.sidebar')
+        @include('transformer.sidebar')
 
         <div class="main-panel">
-            @include('category.navbar')
+            @include('transformer.navbar')
 
             <div class="content">
                 @yield('content')

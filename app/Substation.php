@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Substation extends Model
 {
+<<<<<<< HEAD
 	/**
      * The primary key associated with the model.
      *
@@ -28,5 +29,14 @@ class Substation extends Model
     public function AreaOffice(){
         return $this->belongsTo('App\AreaOffice');
     }
+=======
+    protected $primaryKey = 'injection_code';
+
+    public $incrementing = false;
+
+     public function substation(){
+         return $this->belongsTo('App\Substation');
+     }
+>>>>>>> 205ac6dbe452fb96874aba6815cb9892d50c8bae
 
 }
