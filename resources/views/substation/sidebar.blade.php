@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="blue" data-image="/creativetim/img/sidebar-4.jpg">
+<div class="sidebar" data-color="brown" data-image="/creativetim/img/sidebar-5.jpg">
 	<div class="sidebar-wrapper">
 		<div class="logo">
 			<a href="#" class="simple-text">Sub Station</a>

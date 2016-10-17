@@ -1,3 +1,5 @@
+<!-- app/views/substations/create.blade.php -->
+
 @extends('substation.master')
 
 @section('service_active')
