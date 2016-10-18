@@ -31,6 +31,7 @@ class SubstationController extends Controller
          // load the create form (app/views/substation/create.blade.php)
         return view('substation.create')->with('substations', $substations)->with('areaoffices', $areaoffices);
     }
+
     /**
      * Store a newly created resource in storage.
      *Validate the forms required 

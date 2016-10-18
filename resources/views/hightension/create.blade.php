@@ -25,13 +25,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>High Tension Nerc code</label>
-                                        <input type="text" class="form-control" placeholder="High Tension Nerc Code" name="high_tension_nerc_code" value="{{old('high_tension_nerc_code')}}">
+                                        <input type="text" class="form-control" placeholder="High Tension Nerc Code" name="high_tension_nerc_code" value="{{old('high_tension_nerc_code')}}" maxlength="4">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>High Tension Kaedc Code</label>
-                                        <input type="text" class="form-control" placeholder="High Tension Kaedc Code" name="high_tension_kaedc_code" value="{{old('high_tension_kaedc_code')}}">
+                                        <input type="text" class="form-control" placeholder="High Tension Kaedc Code" name="high_tension_kaedc_code" value="{{old('high_tension_kaedc_code')}}" maxlength="4">
                                     </div>
                                 </div>
                             </div>

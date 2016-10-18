@@ -9,4 +9,5 @@ interface HighTensionContract
 	public function remove($hightensionid);
 	public function findById($hightensionid);
 	public function findAll();
+	public function findHightensionByFeeder($feedercode);
 }

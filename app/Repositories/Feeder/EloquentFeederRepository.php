@@ -19,7 +19,7 @@ class EloquentFeederRepository implements FeederContract
         return Feeder::all();
     }
 
-	public function setFeederProperties($feeder, $request) {
+	private function setFeederProperties($feeder, $request) {
 		$feeder->name = $request->name;
 		$feeder->feeder_nerc_code = $request->feeder_nerc_code;
 		$feeder->feeder_kaedc_code = $request->feeder_kaedc_code;
@@ -29,5 +29,11 @@ class EloquentFeederRepository implements FeederContract
 		$feeder->injection_code_kaedc = $feed2[1];
 		$feeder->area_office_code_nerc = $feed1[0];
 		$feeder->area_office_code_kaedc = $feed1[1];		
+	}
+
+	public function findFeederBySubstation($substationcode) {
+		$substationcode = (str_split($substationcode, 3));
+        $substation = $substationcode[0];
+		return Feeder::where('injection_code_nerc', $substation)->get();
 	}
 }

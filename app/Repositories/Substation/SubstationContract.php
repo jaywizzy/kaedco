@@ -9,4 +9,5 @@ interface SubstationContract
     public function remove($substationid);
     public function findById($substationid);
     public function findAll();
+    public function findSubstationByAreaCode($areaofficecode);
 }

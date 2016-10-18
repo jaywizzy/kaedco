@@ -8,7 +8,9 @@ class Substation extends Model
      *
      * @var string
      */
+
     protected $primaryKey = 'injection_nerc_code';
+
      /**
      * Indicates if the model should be auto incrementing
      *

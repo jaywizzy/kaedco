@@ -36,7 +36,7 @@ class EloquentAreaOfficeRepository implements AreaOfficeContract
     private function setAreaOfficeProperties($areaOffice, $request) {
         $areaOffice->area_office_name = $request->area_office_name;
         $areaOffice->nerc_code = $request->nerc_code;
-        $areaOffice->kaedc_code = $request->kaedc_code;
-        
+        $areaOffice->kaedc_code = $request->kaedc_code;        
     }
+
 }

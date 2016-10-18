@@ -9,4 +9,5 @@ interface TransformerContract
 	public function remove($transformerid);
 	public function findById($transformerid);
 	public function findAll(); 
+	public function findTransformerByHighTension($hightensioncode);
 }

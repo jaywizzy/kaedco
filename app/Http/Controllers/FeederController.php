@@ -9,6 +9,8 @@ use Session;
 use App\Repositories\Feeder\FeederContract;
 use App\Repositories\AreaOffice\AreaOfficeContract;
 use App\Repositories\Substation\SubstationContract;
+use App\AreaOffice;
+use App\Substation;
 
 class FeederController extends Controller
 {
@@ -30,6 +32,14 @@ class FeederController extends Controller
         return view('feeder.create')->with('areaoffices', $areaoffices)
                                     ->with('substations', $substations)
                                     ->with('feeders', $feeders);
+    }
+
+    public function ajaxCall(Request $request) {
+        $feeders = $this->repo->findAll();
+        $areaoffice = $request->area_office_name;
+        $areaoffices = AreaOffice::where('area_office_name', $areaoffice)->first();
+        $substations = Substation::where('area_office_nerc', $areaoffices->nerc_code)->get();
+        return $substations;
     }
 
     public function store(Request $request) {

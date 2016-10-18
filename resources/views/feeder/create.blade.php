@@ -24,13 +24,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Feeder Nerc Code</label>
-                                            <input type="text" class="form-control" placeholder="Feeder Nerc Code" name="feeder_nerc_code" value="{{old('feeder_nerc_code')}}">
+                                            <input type="text" class="form-control" placeholder="Feeder Nerc Code" name="feeder_nerc_code" value="{{old('feeder_nerc_code')}}" maxlength="2">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Feeder Kaedc Code</label>
-                                            <input type="text" class="form-control" placeholder="Feeder Kaedc Code" name="feeder_kaedc_code" value="{{old('feeder_kaedc_code')}}">
+                                            <input type="text" class="form-control" placeholder="Feeder Kaedc Code" name="feeder_kaedc_code" value="{{old('feeder_kaedc_code')}}" maxlength="2">
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Area Office</label>
-                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
+                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="area_office_dropdown">
                                                     @foreach($areaoffices as $areaoffice)
                                                         <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
                                                     @endforeach
@@ -50,10 +50,10 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Injection Sub-station</label>
-                                                <select class="form-control" name="substation_name" value="{{old('substation_name')}}">
-                                                    @foreach($substations as $substation) 
-                                                        <option value="{{$substation->area_office_nerc . $substation->area_office_kaedc}}">{{$substation->substation_name}} </option>
-                                                    @endforeach 
+                                                <select class="form-control" name="substation_name" value="{{old('substation_name')}}" id="substation_dropdown">
+                                                   @foreach($substations as $substation)
+                                                        <option value="{{$substation->injection_nerc_code . $substation->injection_kaedc_code}}">{{$substation->substation_name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
