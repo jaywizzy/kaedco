@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Area Office</a>
+            <a class="navbar-brand" href="#">Sub-Station</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">

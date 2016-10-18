@@ -1,6 +1,6 @@
 @extends('areaoffice.master')
 
-@section('service_active')
+@section('areaoffice_active')
     active
 @stop
 

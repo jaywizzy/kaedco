@@ -1,6 +1,6 @@
 @extends('transformer.master')
 
-@section('service_active')
+@section('transformer_active')
     active
 @stop
 

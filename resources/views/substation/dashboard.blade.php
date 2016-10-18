@@ -1,7 +1,7 @@
-@extends('areaoffice.master')
+@extends('substation.master')
 
 @section('content')
-    <div>Area Office</div>
+    <div>Sub-Station</div>
 @stop
 
 @section('dashboard_active')

@@ -2,7 +2,7 @@
 
 @extends('substation.master')
 
-@section('substation_active')
+@section('service_active')
     active
 @stop
 
@@ -12,10 +12,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Add new Sub-Station</h4>
+                        <h4 class="title">Edit Sub-Station</h4>
                     </div>
                     <div class="content">
-                        {{Form::open(['route' => 'store_substation', 'method' => 'POST'])}}
+                        {{Form::open(['route' => '/editsubstation/'.$substation->injection_nerc_code, 'method' => 'PUT'])}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                           <!--  <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>AREA OFFICE</label>
@@ -61,7 +61,7 @@
                                 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <button type="submit" class="btn btn-info btn-fill pull-right">Submit</button>
                             <div class="clearfix"></div>
@@ -74,7 +74,7 @@
                 @include('layouts.errors')
             </div>
 
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -83,7 +83,6 @@
                             <th>Injection Kaedc Code</th>
                             <th>Area Office Nerc</th>
                             <th>Area Office Kaedc</th>
-                            <th>Edit</th>
                         </tr>
                     </thead>
                   
@@ -95,14 +94,11 @@
                                 <td>{{ $substation->injection_kaedc_code }}</td>
                                 <td>{{ $substation->area_office_nerc }}</td>
                                 <td>{{ $substation->area_office_kaedc }}</td>
-                                <td>
-                                    <a class="btn btn-primary" href="{{ '/editsubstation/'.$substation->injection_nerc_code }}">Edit</a>
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> -->
         </div>
     </div>
 @stop

@@ -1,6 +1,6 @@
 @extends('category.master')
 
-@section('service_active')
+@section('category_active')
     active
 @stop
 

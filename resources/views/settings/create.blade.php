@@ -1,6 +1,6 @@
 @extends('settings.master')
 
-@section('settings_active')
+@section('setting_active')
     active
 @stop
 

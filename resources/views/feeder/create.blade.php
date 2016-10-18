@@ -1,6 +1,6 @@
 @extends('feeder.master')
 
-@section('service_active')
+@section('feeder_active')
     active
 @stop
 

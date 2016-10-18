@@ -1,6 +1,6 @@
 @extends('tariff.master')
 
-@section('service_active')
+@section('tariff_active')
     active
 @stop
 
