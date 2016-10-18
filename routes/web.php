@@ -1,4 +1,6 @@
 <?php
+use App\Substation;
+use App\AreaOffice;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ Route::group(['prefix' => 'feeder'], function () {
 	Route::post('/', 'FeederController@store')->name('store_feeder');
 });
 
+
 Route::group(['prefix' => 'area-office'], function () {
 	Route::get('/', 'AreaOfficeController@create')->name('get_area_office');
 	Route::post('/', 'AreaOfficeController@store')->name('store_area_office');
@@ -66,3 +69,11 @@ Route::group(['prefix' => 'transformer'], function () {
 	Route::get('/', 'TransformerController@create')->name('get_transformer');
 	Route::post('/', 'TransformerController@store')->name('store_transformer');
 });
+
+
+Route::group(['prefix' => 'ajaxcall'], function() {
+    Route::post('/areaoffice', 'AjaxController@findSubstationByAreaNercCode')->name('ajax_areaoffice');
+    Route::post('/substation', 'AjaxController@findTransformerByHighTension')->name('ajax_substation'); 
+    Route::post('/feeder', 'AjaxController@findHightension')->name('ajax_feeder');
+});
+

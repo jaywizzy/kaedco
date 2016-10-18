@@ -40,7 +40,7 @@ class EloquentHighTensionRepository implements HighTensionContract
 		return HighTension::all();
 	}
 
-	public function setHighTensionProperties($hightension, $request) {
+	private function setHighTensionProperties($hightension, $request) {
 		$hightension->name = $request->name;
 		$hightension->high_tension_nerc_code = $request->high_tension_nerc_code;
 		$hightension->high_tension_kaedc_code = $request->high_tension_kaedc_code;
@@ -53,5 +53,11 @@ class EloquentHighTensionRepository implements HighTensionContract
 		$hightension->injection_kaedc_code= $high2[1];
 		$hightension->area_office_nerc_code= $high1[0];
 		$hightension->area_office_kaedc_code= $high1[1];
+	}
+
+	public function findHightensionByFeeder($feedercode) {
+		$feedercode = (str_split($feedercode, 2));
+        $feeder = $feedercode[0];
+		return HighTension::where('feeder_nerc_code', $feeder)->get();
 	}
 }

@@ -39,6 +39,7 @@ class SubstationController extends Controller
         return view('substation.create')->with('substations', $substations)->with('areaoffices', $areaoffices);
 
     }
+
     /**
      * Store a newly created resource in storage.
      *Validate the forms required 

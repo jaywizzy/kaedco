@@ -53,4 +53,10 @@ class EloquentTransformerRepository implements TransformerContract
         $transformer->areaoffice_code_nerc = $transform1[0];
         $transformer->areaoffice_code_kaedc = $transform1[1];
     }
+
+    public function findTransformerByHighTension($hightensioncode) {
+        $hightensioncode = (str_split($hightensioncode, 2));
+        $hightension = $hightensioncode[0];
+        return Tranformer::where('high_tension_nerc_code', $hightension);
+    }
 }
