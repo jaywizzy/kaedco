@@ -24,13 +24,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Feeder Nerc Code</label>
-                                            <input type="text" class="form-control" placeholder="Feeder Nerc Code" name="feeder_nerc_code" value="{{old('feeder_nerc_code')}}">
+                                            <input type="text" class="form-control" placeholder="Feeder Nerc Code" name="feeder_nerc_code" value="{{old('feeder_nerc_code')}}" maxlength="2">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Feeder Kaedc Code</label>
-                                            <input type="text" class="form-control" placeholder="Feeder Kaedc Code" name="feeder_kaedc_code" value="{{old('feeder_kaedc_code')}}">
+                                            <input type="text" class="form-control" placeholder="Feeder Kaedc Code" name="feeder_kaedc_code" value="{{old('feeder_kaedc_code')}}" maxlength="2">
                                         </div>
                                     </div>
                                 </div>

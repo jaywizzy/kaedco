@@ -29,7 +29,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>INJECTION NERC CODE</label>
-                                        <input type="text" class="form-control" placeholder="Enter Injection Nerc Code" name="injection_nerc_code" value="{{old('injection_nerc_code')}}">
+                                        <input type="text" class="form-control" placeholder="Enter Injection Nerc Code" name="injection_nerc_code" value="{{old('injection_nerc_code')}}" maxlength="3">
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>INJECTION KAEDC CODE</label>
-                                        <input type="text" class="form-control" placeholder="Enter Injection Kaedc Code" name="injection_kaedc_code" value="{{old('injection_kaedc_code')}}">
+                                        <input type="text" class="form-control" placeholder="Enter Injection Kaedc Code" name="injection_kaedc_code" value="{{old('injection_kaedc_code')}}" maxlength="3">
                                     </div>
                                 </div>
                             </div>
