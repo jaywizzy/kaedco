@@ -27,14 +27,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label> TRANSFORMER NERC Code</label>
-                                        <input type="text" class="form-control" placeholder="Enter NERC Code" name="transformer_nerc_code" value="{{old('transformer_nerc_code')}}">
+                                        <input type="text" class="form-control" placeholder="Enter NERC Code" name="transformer_nerc_code" value="{{old('transformer_nerc_code')}}" maxlength="4">
                                     </div>
                                 </div>
                             
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>TRANSFORMER KAEDCO Code</label>
-                                        <input type="text" class="form-control" placeholder="Enter KAEDCO Code" name="transformer_kaedc_code" value="{{old('transformer_kaedc_code')}}">
+                                        <input type="text" class="form-control" placeholder="Enter KAEDCO Code" name="transformer_kaedc_code" value="{{old('transformer_kaedc_code')}}" maxlength="4">
                                     </div>
                                 </div>
                             </div>
