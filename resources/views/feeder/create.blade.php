@@ -107,8 +107,9 @@
                             success: function(data) {
                                 $('#substation_dropdown').empty();
                                 $.each(data, function(i, substation) {
-                                    $('#substation_dropdown').append($("<option>").text(substation['substation_name']).attr('value', substation['injection_nerc_code' . 'injection_kaedc_code']));
+                                    $('#substation_dropdown').append($("<option>").text(substation['substation_name']).attr('value', substation['injection_nerc_code' + 'injection_code_kaedc']));
                                 });
+
                                 updatesubstationDropdown();
                             },
                             error: function(xhr, ajaxOptions, thrownError) {
