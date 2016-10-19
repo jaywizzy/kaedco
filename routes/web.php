@@ -52,7 +52,7 @@ Route::group(['prefix' => 'bookcode'], function () {
 Route::group(['prefix' => 'substation'], function () {
     Route::get('/', 'SubstationController@create')->name('get_subsection');
     Route::post('/', 'SubstationController@store')->name('store_substation');
-    Route::get('/editsubstation/{injection_nerc_code}', 'SubstationController@showEdit');
+    Route::get('/{injection_nerc_code}', 'SubstationController@showEdit');
     Route::put('/editsubstation/{injection_nerc_code}', 'SubstationController@editsubstation');
 });
 
@@ -60,15 +60,12 @@ Route::group(['prefix' => 'substation'], function () {
 Route::group(['prefix' => 'hightension'], function () {
     Route::get('/', 'HighTensionController@create')->name('get_hightension');
     Route::post('/', 'HighTensionController@store')->name('store_hightension');
-
 });
 
 
 Route::group(['prefix' => 'transformer'], function () {
 	Route::get('/', 'TransformerController@create')->name('get_transformer');
 	Route::post('/', 'TransformerController@store')->name('store_transformer');
-    
-
 });
 
 
