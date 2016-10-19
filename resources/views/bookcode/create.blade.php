@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Setting</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Book Code</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

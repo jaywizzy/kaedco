@@ -40,7 +40,7 @@
                                         <div class="form-group">
                                                 <label>Area Office</label>
                                                 <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown">
-                                                    <option placeholder="Select Area Office">Select Area Office</option>
+                                                    <option value="">Select Area Office</option>
                                                     @foreach($areaoffices as $areaoffice)
                                                         <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
                                                     @endforeach
@@ -52,9 +52,6 @@
                                         <label>Substation</label>
                                         <select class="form-control" name="substation_name" value="{{old('substation_name')}}" id="substation_dropdown">
                                             <option placeholder="Select Substation">Select Substation</option>
-                                            @foreach ($substations as $substation)
-                                                <option value=""> </option>
-                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -62,10 +59,7 @@
                                     <div class="form-group">
                                         <label>Feeder</label>
                                           <select class="form-control" name="feeder_name" value="{{old('feeder_name')}}" id="feeder_dropdown">
-                                          <option placeholder="Select Feeder">Select Feeder</option>
-                                            @foreach ($feeders as $feeder)
-                                                <option value=""></option>
-                                            @endforeach
+                                           <option> Selected</option>
                                         </select>
                                     </div>
                                 </div>
@@ -95,6 +89,15 @@
                     };
                     updatesubstationDropdown();
 
+                    var updatefeederDropdown = function() {
+                        if ($('#substation_dropdown').val() == '') {
+                            $('#feeder_dropdown').prop('disabled', true);
+                        } else {
+                            $('#feeder_dropdown').prop('disabled', false);
+                        }
+                    };
+                    updatefeederDropdown();
+
                     //csrf token
                     var tok = $('#_token').val();
 
@@ -115,6 +118,7 @@
                             },
                             success: function(data) {
                                 $('#substation_dropdown').empty();
+                                // $('#substation_dropdown').append($("<option>").text('Sub Station').attr('value','');
                                 $.each(data, function(i, substation) {
                                     $('#substation_dropdown').append($("<option>").text(substation['substation_name']).attr('value', substation['injection_nerc_code']));
                                 });
@@ -127,19 +131,20 @@
                     });
 
                     $('#substation_dropdown').change(function() {
-                        
+                        updatefeederDropdown();
 
                         $.ajax({
                             "type":"POST",
-                            "url": "{{route('ajax_substation')}}",
+                            "url": "{{route('ajax_hightension')}}",
                             "data": {
                                 "_token": tok,
                                 "substationcode": $('#substation_dropdown').val(),
                             },
                             success: function(data) {
                                 $('#feeder_dropdown').empty();
+                                // $('#feeder_dropdown').append($("<option>").text('Feeder').attr('value','');
                                 $.each(data, function(i, feeder) {
-                                    $('#feeder_dropdown').append($("<option>").text(feeder['name']).attr('value', feeder['feeder_nerc_code']));
+                                    $('#feeder_dropdown').append($("<option>").text(feeder['name']).attr('value', feeder['injection_nerc_code' + 'injection_kaedc_code']));
                                 });
                                
                             },

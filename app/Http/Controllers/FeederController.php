@@ -34,6 +34,15 @@ class FeederController extends Controller
                                     ->with('feeders', $feeders);
     }
 
+    public function index() {
+        $feeders = $this->repo->findAll();
+        $areaoffices = $this->areaRepo->findAll();
+        $substations = $this->substationRepo->findAll();
+        return view('feeder.index')->with('areaoffices', $areaoffices)
+                                    ->with('substations', $substations)
+                                    ->with('feeders', $feeders);
+    }
+
     public function ajaxCall(Request $request) {
         $feeders = $this->repo->findAll();
         $areaoffice = $request->area_office_name;
