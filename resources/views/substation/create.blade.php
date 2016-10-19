@@ -49,8 +49,12 @@
                                         <label>AREA OFFICE</label>
                                         <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
                                             <option value="">Area Office</option>
-                                            @foreach($areaOffices as $areaoffice)
-                                                <option value="{{ $area_office->nerc_code }}" {{old('area_office') == $area_office->nerc_code ? "selected":""}}>{{ $area_office->area_office_name }}</option>
+                                            @foreach($areaoffices as $areaoffice)
+                                                <option value="{{$area_office->nerc_code . $area_office->kaedc_code}}">{{$area_office->area_office_name}}
+
+                                                <option value="{{$area_office->nerc_code . $area_office->kaedc_code}}">
+                                                    {{$areaoffice->area_office_name}}
+                                                </option>
                                             @endforeach
                                         </select>                                
                                     </div>
