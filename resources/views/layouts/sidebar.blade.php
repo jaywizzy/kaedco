@@ -1,7 +1,7 @@
 <div class="sidebar" data-color="blue" data-image="/creativetim/img/sidebar-4.jpg">
 	<div class="sidebar-wrapper">
 		<div class="logo">
-			<a href="{{route('get_area_office')}}" class="simple-text">Area Office</a>
+			<a class="simple-text">KEADCO</a>
 		</div>
 
 		<ul class="nav">
