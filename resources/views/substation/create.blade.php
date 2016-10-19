@@ -1,6 +1,6 @@
 <!-- app/views/substations/create.blade.php -->
-@extends(layouts.main)
-@extends('substation.master')
+
+@extends('layouts.main')
 
 @section('substation_active')
     active
@@ -29,7 +29,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>INJECTION NERC CODE</label>
-                                        <input type="text" class="form-control" placeholder="E.g: 021" name="injection_nerc_code" value="{{old('injection_nerc_code')}}" maxlength="3">
+                                        <input type="text" class="form-control" placeholder="E.g: 123" name="injection_nerc_code" value="{{old('injection_nerc_code')}}" maxlength="3">
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>INJECTION KAEDC CODE</label>
-                                        <input type="text" class="form-control"  placeholder="E.g: 123" name="injection_kaedc_code" value="{{old('injection_kaedc_code')}}" maxlength="3">
+                                        <input type="text" class="form-control" placeholder="E.g: 321" name="injection_kaedc_code" value="{{old('injection_kaedc_code')}}" maxlength="3">
                                     </div>
                                 </div>
                             </div>
@@ -47,12 +47,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>AREA OFFICE</label>
-                                        <select name="area_office_name" id=areaofffice_dropdown class="form-control" {{count($areaoffices) < 1 ? "disabled":"" }}>
-                                            
-                                            <option value="">Area Office</option>
+                                        <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
                                             @foreach($areaoffices as $areaoffice)
-
-                                               <!--  <option value="{{ $areaoffice->nerd_code }}" {{old('area_office') == $area_office->nerc_code ? "selected":""}}>{{ $area_office->substation_name }}</option> -->
 
                                                 <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}
 
@@ -78,7 +74,7 @@
                 @include('layouts.errors')
             </div>
 
-           <!--  <div class="col-md-12">
+            <div class="col-md-12">
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -106,7 +102,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div> -->
+            </div>
         </div>
     </div>
 @stop
