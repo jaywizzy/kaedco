@@ -13,4 +13,8 @@ class Transformer extends Model
     public function highTension(){
     	return $this->belongsTo('App\HighTension');
     }
+
+    public function bookCode() {
+    	return $this->hasMany('App\TransformerBookCode');
+    }
 }

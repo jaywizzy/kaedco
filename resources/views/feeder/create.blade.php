@@ -1,7 +1,11 @@
-@extends('feeder.master')
+@extends('layouts.main')
 
 @section('feeder_active')
     active
+@stop
+
+@section('navbar')
+    @include('feeder.navbar')
 @stop
 
 @section('content')
@@ -10,15 +14,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Add new Feeder</h4>
+                        <h4 class="title">Feeder Details</h4>
                     </div>
                     <div class="content">
-                        {{Form::open(['route' => 'store_feeder', 'method' => 'POST'])}}
+                        {{Form::open(['route' => 'store_feeder', 'method' => 'POST', 'id' => 'showForm'])}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" placeholder="Name" name="name" value="{{old('name')}}">
+                                        <input type="text" class="form-control" placeholder="E.g: Old Airport Junction Feeder" name="name" value="{{old('name')}}">
                                     </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -38,9 +42,10 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Area Office</label>
-                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown">
+                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown" {{count($feeders) < 1 ? "disabled":""}}>
+                                                <option value="">Select Area Office</option>
                                                     @foreach($areaoffices as $areaoffice)
-                                                        <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
+                                                        <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}" {{old('area_office') == $areaoffice->nerc_code ? "selected":""}}>{{$areaoffice->area_office_name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -62,7 +67,7 @@
                                 </div>
                             </div>
                             <input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" />
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Feeder</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" id="submitBtn">Add Feeder</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -82,8 +87,7 @@
                         } else {
                             $('#substation_dropdown').prop('disabled', false);
                         }
-                    };
-                    
+                    };                   
                     updatesubstationDropdown();
                     
                     // csrf token
@@ -165,36 +169,6 @@
                     });
                 });
             </script>
-
-
-            <div class="col-md-12">
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Feeder Name</th>
-                            <th>Feeder Nerc Code</th>
-                            <th>Feeder Kaedc Code</th>
-                            <th>NERC Injection Code</th>
-                            <th>KAEDC Injection Code</th>
-                            <th>NERC Area Office Code</th>
-                            <th>KAEDC Area Office Code</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($feeders as $feeder)
-                            <tr>                                    
-                                <td>{{ $feeder->name }} </td>
-                                <td>{{ $feeder->feeder_nerc_code }}</td>
-                                <td>{{ $feeder->feeder_kaedc_code }}</td>
-                                <td>{{ $feeder->injection_code_nerc }}</td>
-                                <td>{{ $feeder->injection_code_kaedc }}</td>
-                                <td>{{ $feeder->area_office_code_nerc }}</td>
-                                <td>{{ $feeder->area_office_code_kaedc }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 @stop

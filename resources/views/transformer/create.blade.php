@@ -44,6 +44,7 @@
                                     <div class="form-group">
                                         <label> Area Office </label>
                                         <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown">
+                                        <option placeholder="Select Area Office">Select Area Office</option>
                                             @foreach($areaoffices as $areaoffice)
                                                 <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
                                             @endforeach
@@ -106,10 +107,7 @@
                         } else {
                             $('#substation_dropdown').prop('disabled', false);
                         }
-                    };
-
-
-                    
+                    };                   
                     updatesubstationDropdown();
                     
                     // csrf token

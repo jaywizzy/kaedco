@@ -31,6 +31,9 @@ Route::group(['prefix' => 'category'], function () {
 Route::group(['prefix' => 'feeder'], function () {
 	Route::get('/', 'FeederController@create')->name('get_feeder');
 	Route::post('/', 'FeederController@store')->name('store_feeder');
+    Route::get('/index', 'FeederController@index')->name('create_feeder');
+    Route::get('/edit', 'BusinessController@update')->name('update_feeder');
+    Route::get('/delete', 'BusinessController@remove')->name('delete_feeder');
 });
 
 Route::group(['prefix' => 'areaoffice'], function () {
@@ -58,7 +61,6 @@ Route::group(['prefix' => 'substation'], function () {
     Route::put('/editsubstation/{injection_nerc_code}', 'SubstationController@editsubstation');
 });
 
-
 Route::group(['prefix' => 'hightension'], function () {
 	Route::get('/', 'HighTensionController@index')->name('get_hightension');
 
@@ -68,16 +70,21 @@ Route::group(['prefix' => 'hightension'], function () {
     Route::get('/delete', 'HighTensionController@store')->name('delete_hightension');
 });
 
-
 Route::group(['prefix' => 'transformer'], function () {
 	Route::get('/', 'TransformerController@create')->name('get_transformer');
 	Route::post('/', 'TransformerController@store')->name('store_transformer');
 });
 
+Route::group(['prefix' => 'transformerbookcode'], function () {
+    Route::get('/', 'TransformerBookCodeController@create')->name('get_transformer_bookcode');
+    Route::post('/', 'TransformerBookCodeController@store')->name('store_transformerbookcode');
+
+});
 
 Route::group(['prefix' => 'ajaxcall'], function() {
     Route::post('/areaoffice', 'AjaxController@findSubstationByAreaNercCode')->name('ajax_areaoffice');
     Route::post('/substation', 'AjaxController@findTransformerByHighTension')->name('ajax_substation'); 
     Route::post('/feeder', 'AjaxController@findHightension')->name('ajax_feeder');
+    Route::post('/hightension', 'AjaxController@findFeederBySubstation')->name('ajax_hightension');
 });
 

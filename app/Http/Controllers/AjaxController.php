@@ -52,4 +52,9 @@ class AjaxController extends Controller
     	return $this->hightensionRepo->findHightensionByFeeder($feedercode);
 
     }
+
+    public function findFeederBySubstation(Request $request) {
+        $substationcode = $request->substationcode;
+        return $this->feederRepo->findFeederBySubstation($substationcode);
+    }
 }

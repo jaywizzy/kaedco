@@ -20,6 +20,8 @@ class CreateSubstationsTable extends Migration
             $table->string('area_office_nerc', 2);
             $table->string('area_office_kaedc', 2);
             $table->timestamps();
+
+            $table->primary(['injection_nerc_code', 'injection_kaedc_code']);
         });
     }
 

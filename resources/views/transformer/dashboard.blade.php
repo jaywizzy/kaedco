@@ -1,7 +1,7 @@
 @extends('transformer.master')
 
 @section('content')
-    <div>Area Office</div>
+    <div>Area Offi</div>
 @stop
 
 @section('dashboard_active')
