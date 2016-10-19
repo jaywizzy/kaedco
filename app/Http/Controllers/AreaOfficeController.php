@@ -22,9 +22,13 @@ class AreaOfficeController extends Controller
         $this->repo = $areaOfficeContract;
     }
 
+    public function index(){
+        $areaOffices = $this->repo->findAll();
+        return view('areaoffice.index')->with('areaOffices', $areaOffices);
+    }
+
     public function create() {
-    	$areaOffices = $this->repo->findAll();
-    	return view('areaoffice.create')->with('areaOffices', $areaOffices);
+    	return view('areaoffice.create');
     }
 
    
