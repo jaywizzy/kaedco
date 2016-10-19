@@ -1,14 +1,14 @@
 <div class="sidebar" data-color="blue" data-image="/creativetim/img/sidebar-4.jpg">
 	<div class="sidebar-wrapper">
 		<div class="logo">
-			<a href="{{route('get_feeder')}}" class="simple-text">Feeder</a>
+			<a href="{{route('get_area_office')}}" class="simple-text">Transformer Book Code</a>
 		</div>
 
 		<ul class="nav">
-			<li class="@yield('feeder_active')">
-				<a href="{{route('get_feeder')}}">
+			<li class="@yield('transformer_bookcode_active')">
+				<a href="{{route('get_transformer_bookcode')}}">
 					<i class="pe-7s-add-user"></i>
-					<p>Add Feeder</p>
+					<p>Transformer Book Code</p>
 				</a>
 			</li>
 			<li class="@yield('areaoffice_active')">
@@ -22,7 +22,14 @@
 					<i class="pe-7s-add-user"></i>
 					<p>Add Sub-Station</p>
 				</a>
-			</li>				
+			</li>
+			<li class="@yield('feeder_active')">
+				<a href="{{route('get_feeder')}}">
+					<i class="pe-7s-add-user"></i>
+					<p>Add Feeder</p>
+				</a>
+			</li>
+				
 			<li class="@yield('hightension_active')">
 				<a href="{{route('get_hightension')}}">
 					<i class="pe-7s-add-user"></i>
@@ -58,7 +65,8 @@
 					<i class="pe-7s-add-user"></i>
 					<p>Book Code</p>
 				</a>
-			</li>		
+			</li>
+			
 		</ul>
 	</div>
 </div>
