@@ -36,6 +36,17 @@ class HighTensionController extends Controller
 										 ->with('feeders', $feeders);
 	}
 
+	public function index(){
+		$hightensions = $this->repo->findAll();
+		$areaoffices = $this->areaofficerepo->findAll();
+		$substations = $this->substationrepo->findAll();
+		$feeders = $this->feederrepo->findAll();
+		return view('hightension.index')->with('hightensions', $hightensions)
+										 ->with('areaoffices', $areaoffices)
+										 ->with('substations', $substations)
+										 ->with('feeders', $feeders);	
+	}
+
 	public function store(Request $request){
 		$this->validate($request, 
 		[

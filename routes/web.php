@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'tariff'], function () {
-
-    Route::get('/', 'TariffController@create')->name('get_tariff');
+	Route::get('/'. 'TariffController@index')->name('tariff_index');
+    Route::get('/create', 'TariffController@create')->name('get_tariff');
     Route::post('/', 'TariffController@store')->name('store_tariff');
     Route::get('/edit', 'TariffController@getEdit')->name('get_edit');
     Route::put('/edit', 'TariffController@update')->name('post_update');
@@ -37,6 +37,8 @@ Route::group(['prefix' => 'areaoffice'], function () {
 	Route::get('/', 'AreaOfficeController@index')->name('get_area_office');
 	Route::get('/create', 'AreaOfficeController@create')->name('create_area_office');
 	Route::post('/', 'AreaOfficeController@store')->name('store_area_office');
+	Route::put('/edit', 'BusinessUnitController@update')->name('update_areaoffice');
+   	Route::get('/delete', 'BusinessUnitController@delete')->name('delete_areaoffice');
 });
 
 Route::group(['prefix' => 'settings'], function () {
@@ -58,8 +60,12 @@ Route::group(['prefix' => 'substation'], function () {
 
 
 Route::group(['prefix' => 'hightension'], function () {
-    Route::get('/', 'HighTensionController@create')->name('get_hightension');
-    Route::post('/', 'HighTensionController@store')->name('store_hightension');
+	Route::get('/', 'HighTensionController@index')->name('get_hightension');
+
+    Route::get('/create', 'HighTensionController@create')->name('create_hightension');
+    Route::post('/store', 'HighTensionController@store')->name('store_hightension');
+    Route::put('/edit', 'HighTensionController@store')->name('update_hightension');
+    Route::get('/delete', 'HighTensionController@store')->name('delete_hightension');
 });
 
 

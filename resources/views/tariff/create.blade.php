@@ -1,4 +1,9 @@
-@extends('tariff.master')
+extends('layouts.main')
+
+@section('navbar')
+    @include('tariff.navbar')
+@stop
+
 
 @section('tariff_active')
     active

@@ -1,4 +1,8 @@
-@extends('hightension.master')
+@extends('layouts.main')
+
+@section('navbar')
+    @include('hightension.navbar')
+@stop
 
 @section('hightension_active')
     active
@@ -37,15 +41,15 @@
                             </div>
                             <div class="row">
                             	<div class="col-md-4">
-                                        <div class="form-group">
-                                                <label>Area Office</label>
-                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
-                                                    @foreach($areaoffices as $areaoffice)
-                                                        <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label>Area Office</label>
+                                        <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
+                                            @foreach($areaoffices as $areaoffice)
+                                                <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Substation</label>
@@ -76,39 +80,6 @@
             <div class="col-md-4">
                 @include('layouts.sessions')
                 @include('layouts.errors')
-            </div>
-
-             <div class="col-md-12">
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>High Tension Name</th>
-                            <th>High Tension Nerc Code</th>
-                            <th>High Tension Kaedc Code</th>
-                            <th>Feeder Nerc Code</th>
-                            <th>Feeder Kaedc Code</th>
-                            <th>NERC Injection Code</th>
-                            <th>KAEDC Injection Code</th>
-                            <th>NERC Area Office Code</th>
-                            <th>KAEDC Area Office Code</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($hightensions as $hightension)
-                            <tr>                                    
-                                <td>{{ $hightension->name }} </td>
-                                <td>{{ $hightension->high_tension_nerc_code }} </td>
-                                <td>{{ $hightension->high_tension_kaedc_code }} </td>
-                                <td>{{ $hightension->feeder_nerc_code }}</td>
-                                <td>{{ $hightension->feeder_kaedc_code }}</td>
-                                <td>{{ $hightension->injection_nerc_code }}</td>
-                                <td>{{ $hightension->injection_kaedc_code }}</td>
-                                <td>{{ $hightension->area_office_nerc_code }}</td>
-                                <td>{{ $hightension->area_office_kaedc_code }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

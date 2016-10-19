@@ -23,11 +23,14 @@ class TariffController extends Controller
     }
 
     public function create() {
-    	$tariffs = $this->repo->findAll();
-    	$categories = $this->categoryRepo->findAll();
-    	return view('tariff.create')->with('tariffs', $tariffs)->with('categories', $categories);
+    	return view('tariff.create');
     }
 
+    public function index(){
+        $tariffs = $this->repo->findAll();
+        $categories = $this->categoryRepo->findAll();
+        return view('tariff.index')->with('tariffs', $tariffs)->with('categories', $categories);
+    }
    
     public function store(Request $request) {
         $this->validate($request, [

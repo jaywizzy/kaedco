@@ -27,7 +27,7 @@
 			<li class="@yield('hightension_active')">
 				<a href="{{route('get_hightension')}}">
 					<i class="pe-7s-add-user"></i>
-					<p>Add High Tension</p>
+					<p>High Tension</p>
 				</a>
 			</li>	
 			<li class="@yield('transformer_active')">
