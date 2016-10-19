@@ -39,6 +39,7 @@
                                             <div class="form-group">
                                                 <label>Area Office</label>
                                                 <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown">
+                                                <option placeholder="Select Area Office">Select Area Office</option>
                                                     @foreach($areaoffices as $areaoffice)
                                                         <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
                                                     @endforeach
@@ -62,7 +63,7 @@
                                 </div>
                             </div>
                             <input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" />
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Add Feeder</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" id="submitBtn">Add Feeder</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -82,8 +83,7 @@
                         } else {
                             $('#substation_dropdown').prop('disabled', false);
                         }
-                    };
-                    
+                    };                   
                     updatesubstationDropdown();
                     
                     // csrf token
@@ -107,7 +107,7 @@
                             success: function(data) {
                                 $('#substation_dropdown').empty();
                                 $.each(data, function(i, substation) {
-                                    $('#substation_dropdown').append($("<option>").text(substation['substation_name']).attr('value', substation['injection_nerc_code']));
+                                    $('#substation_dropdown').append($("<option>").text(substation['substation_name']).attr('value', substation['injection_nerc_code' . 'injection_kaedc_code']));
                                 });
                                 updatesubstationDropdown();
                             },

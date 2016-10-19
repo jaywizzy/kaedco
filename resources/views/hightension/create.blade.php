@@ -39,7 +39,8 @@
                             	<div class="col-md-4">
                                         <div class="form-group">
                                                 <label>Area Office</label>
-                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
+                                                <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown">
+                                                    <option placeholder="Select Area Office">Select Area Office</option>
                                                     @foreach($areaoffices as $areaoffice)
                                                         <option value="{{$areaoffice->nerc_code . $areaoffice->kaedc_code}}">{{$areaoffice->area_office_name}}</option>
                                                     @endforeach
@@ -49,9 +50,10 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Substation</label>
-                                        <select class="form-control" name="substation_name" value="{{old('substation_name')}}">
+                                        <select class="form-control" name="substation_name" value="{{old('substation_name')}}" id="substation_dropdown">
+                                            <option placeholder="Select Substation">Select Substation</option>
                                             @foreach ($substations as $substation)
-                                                <option value="{{$substation->injection_nerc_code . $substation->injection_kaedc_code}}"> {{$substation->substation_name}} </option>
+                                                <option value=""> </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -59,15 +61,19 @@
                             	<div class="col-md-4">
                                     <div class="form-group">
                                         <label>Feeder</label>
-                                          <select class="form-control" name="feeder_name" value="{{old('feeder_name')}}">
+                                          <select class="form-control" name="feeder_name" value="{{old('feeder_name')}}" id="feeder_dropdown">
+                                          <option placeholder="Select Feeder">Select Feeder</option>
                                             @foreach ($feeders as $feeder)
-                                                <option value="{{$feeder->feeder_nerc_code . $feeder->feeder_kaedc_code}}"> {{$feeder->name}} </option>
+                                                <option value=""></option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Add High Tension</button>
+
+                            <input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}">
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right" id="submitBtn">Add High Tension</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -77,6 +83,73 @@
                 @include('layouts.sessions')
                 @include('layouts.errors')
             </div>
+
+            <script type="text/javascript">
+                $(function() {
+                    var updatesubstationDropdown = function() {
+                        if ($('#areaoffice_dropdown').val() == '') {
+                            $('#substation_dropdown').prop('disabled', true);
+                        } else {
+                            $('#substation_dropdown').prop('disabled', false);
+                        }
+                    };
+                    updatesubstationDropdown();
+
+                    //csrf token
+                    var tok = $('#_token').val();
+
+                    // disable submit button when clicked
+                    $("#submitBtn").on("click", function() {
+                        $("#submitBtn").addClass("disabled");
+                    });
+                    
+                    $('#areaoffice_dropdown').change(function() {
+                        updatesubstationDropdown();
+
+                        $.ajax({
+                            "type":"POST",
+                            "url": "{{route('ajax_areaoffice')}}",
+                            "data": {
+                                "_token": tok,
+                                "areaofficecode": $('#areaoffice_dropdown').val(),
+                            },
+                            success: function(data) {
+                                $('#substation_dropdown').empty();
+                                $.each(data, function(i, substation) {
+                                    $('#substation_dropdown').append($("<option>").text(substation['substation_name']).attr('value', substation['injection_nerc_code']));
+                                });
+                                updatesubstationDropdown();
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                console.log(xhr.responseText);
+                            }
+                        });
+                    });
+
+                    $('#substation_dropdown').change(function() {
+                        
+
+                        $.ajax({
+                            "type":"POST",
+                            "url": "{{route('ajax_substation')}}",
+                            "data": {
+                                "_token": tok,
+                                "substationcode": $('#substation_dropdown').val(),
+                            },
+                            success: function(data) {
+                                $('#feeder_dropdown').empty();
+                                $.each(data, function(i, feeder) {
+                                    $('#feeder_dropdown').append($("<option>").text(feeder['name']).attr('value', feeder['feeder_nerc_code']));
+                                });
+                               
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                console.log(xhr.responseText);
+                            }
+                        });
+                    });
+                });
+            </script>
 
              <div class="col-md-12">
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
