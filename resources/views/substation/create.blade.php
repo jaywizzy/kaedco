@@ -47,16 +47,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>AREA OFFICE</label>
-                                        <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}">
-                                            <option value="">Area Office</option>
-                                            @foreach($areaoffices as $areaoffice)
-                                                <option value="{{$area_office->nerc_code . $area_office->kaedc_code}}">{{$area_office->area_office_name}}
-
-                                                <option value="{{$area_office->nerc_code . $area_office->kaedc_code}}">
-                                                    {{$areaoffice->area_office_name}}
-                                                </option>
-                                            @endforeach
-                                        </select>                                
+                                            <select class="form-control" name="area_office_name" value="{{old('area_office_name')}}" id="areaoffice_dropdown" {{count($feeders) < 1 ? "disabled":""}}>
+                                                <option value="">Select Area Office</option>
+                                                    @foreach($areao_ffices as $area_office)
+                                                <option value="{{$area_office->nerc_code . $area_office->kaedc_code}}" {{old('area_office') == $areaoffice->nerc_code ? "selected":""}}>{{$area_office->area_office_name}}</option>
+                                                        @endforeach
+                                            </select>                         
                                     </div>
                                 </div>
                             </div>
