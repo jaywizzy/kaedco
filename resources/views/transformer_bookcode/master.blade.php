@@ -29,10 +29,10 @@
 </head>
 <body>
     <div class="wrapper">
-        @include('areaoffice.sidebar')
+        @include('transformer_bookcode.sidebar')
 
         <div class="main-panel">
-            @include('areaoffice.navbar')
+            @include('transformer_bookcode.navbar')
 
             <div class="content">
                 @yield('content')

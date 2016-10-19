@@ -19,8 +19,8 @@ class AjaxController extends Controller
     protected $hightensionRepo;
     protected $tranformerRepo;
 
-    public function __construct(AreaOfficeContract $areaOfficeContract, SubstationContract $substationContract,
-       							 FeederContract $feederContract, TransformerContract $transformerContract,HighTensionContract $hightensionContract) {
+    public function __construct(AreaOfficeContract $areaOfficeContract, SubstationContract $substationContract, FeederContract $feederContract, TransformerContract $transformerContract,HighTensionContract $hightensionContract) {
+        
             $this->areaOfficeRepo = $areaOfficeContract;
             $this->substationRepo = $substationContract;
             $this->feederRepo = $feederContract;

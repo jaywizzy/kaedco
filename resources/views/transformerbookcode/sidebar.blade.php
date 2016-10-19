@@ -5,37 +5,29 @@
 		</div>
 
 		<ul class="nav">
+<<<<<<< HEAD:resources/views/transformerbookcode/sidebar.blade.php
 		<li class="@yield('substation_active')">
 				<a href="{{route('get_subsection')}}">
+=======
+			<li class="@yield('feeder_active')">
+				<a href="{{route('get_feeder')}}">
+>>>>>>> 594e6118bb54a4114f0e36df70a01353fa54ca8c:resources/views/feeder/sidebar.blade.php
 					<i class="pe-7s-add-user"></i>
-					<p>Add Sub-Station</p>
+					<p>Add Feeder</p>
 				</a>
 			</li>
-		<li class="@yield('tariff_active')">
-				<a href="{{route('get_tariff')}}">
-					<i class="pe-7s-add-user"></i>
-					<p>Tariff</p>
-				</a>
-			</li>	
-			<li class="@yield('category_active')">
-				<a href="{{route('get_category')}}">
-					<i class="pe-7s-add-user"></i>
-					<p>Category</p>
-				</a>
-			</li>	
 			<li class="@yield('areaoffice_active')">
 				<a href="{{route('get_area_office')}}">
 					<i class="pe-7s-add-user"></i>
 					<p>Add Area Office</p>
 				</a>
-			</li>		
-			
-			<li class="@yield('feeder_active')">
-				<a href="{{route('get_feeder')}}">
-					<i class="pe-7s-add-user"></i>
-					<p>Add Feeder</p>
-				</a>
 			</li>
+			<li class="@yield('substation_active')">
+				<a href="{{route('get_subsection')}}">
+					<i class="pe-7s-add-user"></i>
+					<p>Add Sub-Station</p>
+				</a>
+			</li>				
 			<li class="@yield('hightension_active')">
 				<a href="{{route('get_hightension')}}">
 					<i class="pe-7s-add-user"></i>
@@ -46,6 +38,18 @@
 				<a href="{{route('get_transformer')}}">
 					<i class="pe-7s-add-user"></i>
 					<p>Add Transformer</p>
+				</a>
+			</li>
+			<li class="@yield('tariff_active')">
+				<a href="{{route('get_tariff')}}">
+					<i class="pe-7s-add-user"></i>
+					<p>Tariff</p>
+				</a>
+			</li>	
+			<li class="@yield('category_active')">
+				<a href="{{route('get_category')}}">
+					<i class="pe-7s-add-user"></i>
+					<p>Category</p>
 				</a>
 			</li>
 			<li class="@yield('setting_active')">

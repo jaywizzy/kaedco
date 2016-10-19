@@ -58,8 +58,8 @@ class SubstationController extends Controller
 
     public function showEdit($injection_nerc_code)
     {
-        $substation=$this->post->findById($injection_nerc_code);
-        return view('substation.edit')->with('substation', $substation);
+        $injection_nerc_code=$this->repo->edit();
+        return view('substation.edit')->with('injection_nerc_code');
     }
 
 }

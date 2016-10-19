@@ -20,6 +20,9 @@ class Substation extends Model
 	 /**
      * Get the substation that owns the AreaOffice.
      */    
+     protected $fillable = [
+     'injection_nerc_code', 'injection_kaedc_code'];
+
     public function AreaOffice(){
         return $this->belongsTo('App\AreaOffice');
     }

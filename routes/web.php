@@ -37,8 +37,8 @@ Route::group(['prefix' => 'feeder'], function () {
 });
 
 Route::group(['prefix' => 'areaoffice'], function () {
-
-	Route::get('/', 'AreaOfficeController@create')->name('get_area_office');
+	Route::get('/', 'AreaOfficeController@index')->name('get_area_office');
+	Route::get('/create', 'AreaOfficeController@create')->name('create_area_office');
 	Route::post('/', 'AreaOfficeController@store')->name('store_area_office');
 });
 
@@ -55,14 +55,13 @@ Route::group(['prefix' => 'bookcode'], function () {
 Route::group(['prefix' => 'substation'], function () {
     Route::get('/', 'SubstationController@create')->name('get_subsection');
     Route::post('/', 'SubstationController@store')->name('store_substation');
-    Route::get('/editsubstation/{injection_nerc_code}', 'SubstationController@showEdit');
+    Route::get('/{injection_nerc_code}', 'SubstationController@showEdit');
     Route::put('/editsubstation/{injection_nerc_code}', 'SubstationController@editsubstation');
 });
 
 Route::group(['prefix' => 'hightension'], function () {
     Route::get('/', 'HighTensionController@create')->name('get_hightension');
     Route::post('/', 'HighTensionController@store')->name('store_hightension');
-
 });
 
 Route::group(['prefix' => 'transformer'], function () {
